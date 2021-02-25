@@ -1,0 +1,317 @@
+-----------Exception Details on  25/2/2021 9:14:50 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : The multi-part identifier "pm.TrolleryEPC" could not be bound.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The multi-part identifier "pm.TrolleryEPC" could not be bound.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 9:15:04 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : The multi-part identifier "pm.TrolleryEPC" could not be bound.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The multi-part identifier "pm.TrolleryEPC" could not be bound.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:47:18 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 46
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'InspectionStatus'.
+
+ Error Page Url: http://localhost:2149/Main/Engine_Read
+
+User Host IP: ::1:::1
+
+
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'InspectionStatus'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:47:45 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 46
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'InspectionStatus'.
+
+ Error Page Url: http://localhost:2149/Main/Engine_Read
+
+User Host IP: ::1:::1
+
+
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'PartType'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'ProcessStatus'.
+Invalid column name 'InspectionStatus'.
+Invalid column name 'InspectionStatus'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:51:01 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid object name 'dbo.tblTrolleryMaster'.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+Invalid object name 'dbo.tblTrolleryMaster'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:51:12 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid object name 'dbo.tblTrolleryMaster'.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+Invalid object name 'dbo.tblTrolleryMaster'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:52:18 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Boolean' type to the 'System.String' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Boolean' type to the 'System.String' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 11:52:26 AM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Boolean' type to the 'System.String' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Boolean' type to the 'System.String' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 12:38:14 PM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Boolean' type to the 'System.Int32' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Boolean' type to the 'System.Int32' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 12:38:29 PM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Boolean' type to the 'System.Int32' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Boolean' type to the 'System.Int32' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 1:17:26 PM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Int16' type to the 'System.Int32' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Int16' type to the 'System.Int32' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 1:27:57 PM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Int16' type to the 'System.String' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Int16' type to the 'System.String' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  25/2/2021 1:33:32 PM-----------------
+Log Written Date: 25_Feb_2021
+
+Error Line No :L line 73
+
+Error Exception: InvalidOperationException
+
+Exception Type: System.InvalidOperationException
+
+Error Message : The specified cast from a materialized 'System.Int16' type to a nullable 'System.Int32' type is not valid.
+
+ Error Page Url: http://localhost:2149/Main/Part_Read
+
+User Host IP: ::1:::1
+
+
+The specified cast from a materialized 'System.Int16' type to a nullable 'System.Int32' type is not valid.
+--------------------------------*End*------------------------------------------
+
+
+

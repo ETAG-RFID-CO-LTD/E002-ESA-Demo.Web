@@ -1,0 +1,39 @@
+﻿@using System.Configuration;
+@{
+    ViewBag.AppsName = "ESA";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--singin m-login--2" id="m_login" style="background-color: white;">
+        <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+            <div class="m-login__container" style="border-radius: 50px; padding: 30px; width: 510px;height: 380px;">
+                <div class="m-login__logo">
+                    <img src="@Url.Content(ConfigurationManager.AppSettings.Get("LogoImagePath"))" style="width: 80px;height: 80px;">
+                    <span style="color:black;font-size:25px; font-family:Arial; word-spacing:5px; font-weight:bold">Eagle Services</span>
+                </div>
+                <div class="m-login__signin" Style="margin: 0 auto 0 auto;">
+                    <form class="m-login__form m-form" action="">
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="text" placeholder="USER ID" id="UserId" name="UserId" autocomplete="off" style="background-color: #f2f2f2;">
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="PASSWORD" id="Password" name="Password" style="background-color: #f2f2f2;">
+                        </div>
+                        <br />
+                        <div id="messageheader-panel-red" style="display :none;text-align:center;color:#ff392e;">
+                            <p id="message-headerform" class="font-weight-bold"></p>
+                        </div>
+                        <div class="m-login__form-action" style=" padding-top :-2em;">
+                            <button id="loginButton" type="submit" onclick="login(); return false;" class="btn btn-focus m-btn m-btn--pill m-btn--custom  m-login__btn m-login__btn--primary">
+                                Sign In
+                            </button>
+                        </div>
+                        <br />
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

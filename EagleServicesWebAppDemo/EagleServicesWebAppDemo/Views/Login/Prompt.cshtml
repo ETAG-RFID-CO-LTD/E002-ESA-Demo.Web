@@ -1,0 +1,184 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "RFID Asset Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    EagleServicesWebApp.Models.LogInMsg Fields = ViewData["LogInMsgSelect"] as EagleServicesWebApp.Models.LogInMsg;
+
+}
+<div id="messageheader-panel-red" style="text-align:center;color:#FF2D2D;font-size:11px;">
+    <p id="message-headerform" class="font-weight-bold">
+        @Fields.LogIn_ChangePwd
+    </p>
+</div>
+
+<div id="windowForUpdateInformation">
+    <div class="k-edit-form-container">
+        <div class="nameEditor">
+            <div class="k-edit-label">User ID:</div>
+            <div class="k-edit-field"><input class="k-textbox" id="UserID" name="UserID" value="@Session["UserID"]" readonly="readonly"> </div>
+        </div>
+
+        <div class="nameEditor">
+            <div class="k-edit-label">New Password:</div>
+            <div class="k-edit-field"><input class="k-textbox" id="NewPassword" type="password" name="NewPassword" value="" maxlength="15"></div>
+        </div>
+
+        <div class="nameEditor">
+            <div class="k-edit-label">Confirm Password:</div>
+            <div class="k-edit-field"><input class="k-textbox" id="ConfirmPassword" type="password" name="ConfirmPassword" value="" maxlength="15"></div>
+        </div>
+
+        <div class="k-edit-buttons k-state-default">
+            <a role="button" id="buttonCancel" class="k-button k-button-icontext k-grid-cancel" href="javascript:void(0);">
+                <span class="k-icon k-i-cancel"></span>CANCEL
+            </a>
+            <a role="button" id="buttonUpdate" class="k-button k-button-icontext k-primary k-grid-update" href="javascript:void(0);">
+                <span class="k-icon k-i-check"></span>UPDATE
+            </a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="@Url.Content("~/Content/assets/javascripts/forms/table.detail.lib.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/assets/javascripts/forms/apps.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var y = document.getElementById("windowForUpdateInformation");
+        y.style.display = "none";
+        createAndShowPopupItem();
+
+    });
+
+    var kendoUpdatePasswordwindow = $("#windowForUpdateInformation");
+
+    function createAndShowPopupItem() {
+
+        var title = "Update Information";
+
+        kendoUpdatePasswordwindow.kendoWindow({
+
+            width: "400px",
+            modal: true,
+            iframe: true,
+            resizable: false,
+            title: title,
+            visible: false,
+            close: onClose
+        });
+
+        var popup = $("#windowForUpdateInformation").data('kendoWindow');
+
+        popup.open();
+        popup.center();
+
+    }
+
+    var link_update = "@Url.Action("UpdatePwd", "Login")";
+    var yourVariable = '@Session["UserGUID"]';
+
+    $("#buttonUpdate").click(function () {
+
+        var voData = {
+            UserGUID: yourVariable,
+            UserID: $('#UserID').val(),
+            Password: $('#NewPassword').val().trim(),
+            ConfirmPassowrd: $('#ConfirmPassword').val().trim()
+
+        };
+        var valid = checkUpdateInfoForm(voData);
+        if (valid.valid) {
+            $.ajax({
+                url: link_update,
+                type: 'POST',
+                data: JSON.stringify(voData),
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+
+                    if (result.errorcode === '0') {
+                        setNotification(result.title, result.msg, 'success');
+                        $('#messageheader-panel-red').hide();
+                        $('#message-panel-red').show();
+                        $("#windowForUpdateInformation").data('kendoWindow').close();
+
+                    } else {
+
+                        setNotification(result.title, result.msg, 'warning');
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+                }
+
+            });
+        } else {
+            setNotification("Form Validation", valid.msg, 'danger');
+        }
+
+    });
+
+    $("#buttonCancel").click(function () {
+        $('#messageheader-panel-red').hide();
+        $('#message-panel-red').show();
+        $("#windowForUpdateInformation").data('kendoWindow').close();
+    });
+
+    function onClose(e) {
+        $('#messageheader-panel-red').hide();
+        $('#message-panel-red').show();
+    }
+
+    function checkUpdateInfoForm(voData) {
+        var valid = 1;
+        var msg = "";
+
+        if (voData.Password === "")
+        {
+            valid = 0; msg += "@Fields.NewPwd_Empty" + "\r\n" + " <br />";
+        }
+        else
+        {
+            if ((voData.Password.length !== "") && ((voData.Password.length <= 7))) { valid = 0; msg += "@Fields.Pwd_Length_Validation" + "\r\n" + " <br />"; }
+        }
+
+        if (voData.ConfirmPassowrd === "")
+        {
+            valid = 0; msg += "@Fields.ConfirmPwd_Empty" + "\r\n" + " <br />";
+        }
+        else
+        {
+            if ((voData.ConfirmPassowrd.length !== "") && ((voData.ConfirmPassowrd.length <= 7))) { valid = 0; msg += "@Fields.ConfirmPwd_Length_Validation" + "\r\n" + " <br />"; }
+
+            if (msg === "") {
+                if (voData.Password !== voData.ConfirmPassowrd) { valid = 0; msg += "@Fields.NotEqual_Pwd " + "\r\n" + " <br />"; }
+
+            }
+        }
+
+        var voRes = {
+            valid: valid,
+            msg: msg
+        };
+        return voRes;
+    }
+</script>
+
+<style>
+    .k-overlay {
+        top: 100%;
+        left: 20px;
+        z-index: 10001;
+        width: 100%;
+        height: 100%;
+        background-color: #F2F3F8;
+        filter: alpha(opacity=50);
+        opacity: .5;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .content {
+        margin: 500px;
+    }
+</style>

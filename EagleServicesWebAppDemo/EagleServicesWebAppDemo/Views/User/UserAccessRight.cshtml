@@ -1,0 +1,175 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "User Access Right";
+    ViewBag.ExcelName = "UserAccessRight_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    Layout = "~/Views/Shared/Layout.cshtml";
+    int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
+    EagleServicesWebApp.Models.UserAccessRightMsg Fields = ViewData["UserAccessRightMsgSelect"] as EagleServicesWebApp.Models.UserAccessRightMsg;
+    EagleServicesWebApp.Models.CommonRoleAccessModel roleModel = System.Web.HttpContext.Current.Session["Roles"] as EagleServicesWebApp.Models.CommonRoleAccessModel;
+
+}
+<input type="text" id="canAdd" value="@roleModel.IsAllowAdd" hidden="hidden" />
+<input type="text" id="canDelete" value="@roleModel.IsAllowDelete" hidden="hidden" />
+<input type="text" id="canUpdate" value="@roleModel.IsAllowEdit" hidden="hidden" />
+<div class="row">
+    <div class="col-xs-18 col-md-12">
+        @(Html.Kendo().Grid<EagleServicesWebApp.Models.RollRoyceSystem.Role_REC>()
+                                                                                                  .Name("grid")
+                                                                                                  .Columns(columns =>
+                                                                                                  {
+                                                                                                      columns.Template(@<text></text>).ClientTemplate("<a class='k-button k-edit' href='" + Url.Action("UpdateInfo", "User", new { id = "#=RoleName#" }) + "'><span class='k-icon k-i-edit'></span></a> " +
+                                                                                                  "<a class='k-button k-remove'><span class='k-icon k-i-delete' onclick='DeleteRow(\"#:RoleName#\")'></span></a> ").Width(18);
+                                                                                                        columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(8);
+
+                                                                                                            columns.Bound(c => c.RoleName).Title("User Role Name").Width(160);
+                                                                                                        })
+                                                                                                                                      .DataSource(ds => ds
+                                                                                                                                          .Ajax()
+                                                                                                                                          .Events(e => e.Error("grid_onError").RequestEnd("grid_onRequestEnd"))
+                                                                                                                                          .Model(m => m.Id(r => r.RoleName))
+                                                                                                                                          .PageSize(_PSettingSize)
+                                                                                                                                          .Create(c => c.Action("AccessRole_Create", "Master"))
+                                                                                                                                          .Read(r => r.Action("Role_Read", "User"))
+                                                                                                                                          .Update(r => r.Action("AccessRole_Update", "Master"))
+                                                                                                                                      )
+                                                                                                                                      .Excel(excel => excel
+                                                                                                                                          .AllPages(true)
+                                                                                                                                          .FileName(@ViewBag.ExcelName + ".xlsx")
+                                                                                                                                          .Filterable(true)
+                                                                                                                                          )
+                                                                                                                                      .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound"))
+                                                                                                                                      .Filterable()
+                                                                                                                                      .HtmlAttributes(new { style = "height:550px;" })
+                                                                                                                                      .Pageable(p => p.Refresh(true))
+                                                                                                                                      .Reorderable(r => r.Columns(true))
+                                                                                                                                      .Resizable(r => r.Columns(true))
+                                                                                                                                      .Sortable()
+                                                                                                                                      .Scrollable()
+                                                                                                                                      .ToolBar(t => t.Custom().Text("<a class='k-button k-button-icontext k-grid-add' href='./AddNew'><span class='k-icon k-i-plus'></span> Add New</a>").Action("AddNew", "User"))
+                                                                                                                                      .ToolBar(t => t.Excel())
+        )
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    if ($('#canAdd').val() == "") {
+        $('.k-grid-add').hide();
+    }
+
+   function grid_onDataBound(e) {
+      var _Edit = "Edit";
+      var _Delete = "Delete";
+      var grid = this;
+      var rows = this.items();
+      $(rows).each(function () {
+         var index = $(this).index() + 1
+            + ($("#grid").data("kendoGrid").dataSource.pageSize() * ($("#grid").data("kendoGrid").dataSource.page() - 1));
+         var rowLabel = $(this).find(".row-number");
+         $(rowLabel).html(index);
+      });
+
+      var trs = this.tbody.find('tr').each(function () {
+         var item = grid.dataItem($(this));
+
+         $(this).find('.k-grid-edit').show();
+         $(this).find('.k-grid-Delete').show();
+
+          if ($('#canUpdate').val() == "") {
+              $(this).find('.k-edit').hide();
+          }
+
+          if ($('#canDelete').val() == "") {
+              $(this).find('.k-remove').hide();
+          }
+
+      });
+   }
+
+   function grid_onRequestEnd(e) {
+   }
+
+   function grid_onEdit(e) {
+   }
+
+   function grid_onError(e) {
+   }
+
+   var link_temprowDeleteByID = "@Url.Action("UserAccessRight_Destroy", "User")";
+   function DeleteRow(e) {
+      var vgrid = $("#grid").data("kendoGrid");
+      var datasource = vgrid.dataSource;
+        var dataItem = datasource.get(e);
+      vWindowModal.title("Delete Confirmation?");
+        vWindowModal.content(vTemplateDelete(dataItem));
+       vWindowModal.center().open();
+
+       var clickcount = 0;
+
+       $("#buttonDeleteYes").click(function () {
+          $("#buttonDeleteYes").attr("disabled", "disabled");
+          clickcount++;
+          if (clickcount == 1) {
+             if (dataItem.RoleName == "Administrator") {
+                setNotification('Warning', "Cannot delete Administrator Role!", 'danger');
+                vWindowModal.close();
+
+             }
+             else {
+                //Perform Delete Function
+                $.ajax({
+                   url: link_temprowDeleteByID,
+                   type: 'POST',
+                   data: JSON.stringify(dataItem),
+                   dataType: 'json',
+                   contentType: 'application/json; charset=utf-8',
+                   success: function (result) {
+                      if (result.errorcode == 0) {
+                         vgrid.dataSource.remove(dataItem);
+                         setNotification(result.title, result.msg, 'success');
+                         vWindowModal.close();
+                         //window.location.reload();
+                      } else {
+                         setNotification("Warning", result.msg, 'warning');
+                         vWindowModal.close();
+
+                      }
+                   },
+                   error: function (jqXHR, textStatus, errorThrown) {
+                      setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+                   }
+
+                });
+             }
+          }
+      });
+
+      $("#buttonDeleteNo").click(function () {
+         vWindowModal.close();
+      });
+   }
+
+</script>
+
+<script type="text/x-kendo-template" id="templateDelete">
+    <div class="k-edit-form-container">
+        <div class="nameEditor">
+            <div class="k-edit-label">Role Name </div>
+            <div class="k-edit-field"><input class="k-textbox" id="RoleName" name="RoleName" value="#=RoleName#" readonly="readonly"></div>
+        </div>
+        <div class="k-edit-buttons k-state-default">
+            <a role="button" id="buttonDeleteNo" class="k-button k-button-icontext k-grid-cancel" href="javascript:void(0);">
+                <span class="k-icon k-i-cancel"></span>No
+            </a>
+            <a role="button" id="buttonDeleteYes" class="k-button k-button-icontext k-primary k-grid-update" href="javascript:void(0);">
+                <span class="k-icon k-i-check"></span>Yes
+            </a>
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="templateAdd">
+</script>
+
+<script type="text/x-kendo-template" id="DeleteConfirm">
+</script>

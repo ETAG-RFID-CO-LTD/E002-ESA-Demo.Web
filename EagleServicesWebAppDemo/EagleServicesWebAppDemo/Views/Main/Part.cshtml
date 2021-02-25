@@ -1,0 +1,240 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "Part";
+    ViewBag.ExcelName = "Part_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    Layout = "~/Views/Shared/Layout.cshtml";
+    int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
+
+}
+<div class="row">
+    <div class="col-xs-18 col-md-12">
+        @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Part_Rec>()
+                                                            .Name("grid")
+                                                            .Columns(columns =>
+                                                            {
+                                                                columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
+                                                                columns.Bound(c => c.PartName).Title("Part").Width(50);
+                                                                columns.Bound(c => c.IsCritical).Title("C/NC").Width(30);
+                                                                columns.Bound(c => c.TrolleyName).Title("Trolley").Width(50);
+                                                                columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(50);
+                                                                columns.Bound(c => c.InspectionStatus).Title("Status").Width(50);
+                                                            })
+.DataSource(ds => ds
+                .Ajax()
+                .Events(e => e.Error("grid_onError").RequestEnd("grid_onRequestEnd"))
+                .PageSize(_PSettingSize)
+                .Read(r => r.Action("Part_Read", "Main"))
+                )
+                .Excel(excel => excel
+                .AllPages(true)
+                .FileName(@ViewBag.ExcelName + ".xlsx")
+                .Filterable(true)
+                )
+                .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound").Cancel("gridCancel"))
+                .Filterable()
+                .HtmlAttributes(new { style = "height:600px;" })
+                .Pageable(p => p.Refresh(true))
+                .Reorderable(r => r.Columns(true))
+                .Resizable(r => r.Columns(true))
+                .Sortable()
+                .Scrollable()
+                .ToolBar(t => t.Excel())
+        )
+    </div>
+</div>
+
+<script type="text/javascript">
+    function gridCancel(e) {
+        e.sender.dataSource.read();
+    }
+
+    $('.k-grid-add').show();
+
+    if ($('#canAdd').val() == "False") {
+        $('.k-grid-add').hide();
+    }
+   function grid_onError(e) {
+      if (e.errors) {
+         var vMessage = "";//"Errors:\n";
+         $.each(e.errors, function (key, value) {
+            if ('errors' in value) {
+               $.each(value.errors, function () {
+                  vMessage += this + "\n";
+               });
+            }
+         });
+         setNotification('warning', vMessage, 'warning');
+
+         var vGrid = $("#grid").data("kendoGrid");
+         vGrid.one("dataBinding", function (e) {
+            e.preventDefault();
+         });
+      }
+   }
+
+       var link_temprowDeleteByID = "@Url.Action("Engine_Destroy", "Asset")";
+   function DeleteRow(e) {
+      var vgrid = $("#grid").data("kendoGrid");
+      var datasource = vgrid.dataSource;
+       var dataItem = datasource.get(e);
+
+       if (dataItem.Model == null || dataItem.Model == '') {
+           dataItem.Model = '';
+       }
+
+       if (dataItem.CSN == null || dataItem.CSN == '') {
+           dataItem.CSN = '';
+       }
+
+       if (dataItem.TSN == null || dataItem.TSN == '') {
+           dataItem.TSN = '';
+       }
+
+
+      vWindowModal.title("Delete Confirmation?");
+        vWindowModal.content(vTemplateDelete(dataItem));
+       vWindowModal.center().open();
+
+       var clickcount = 0;
+
+       $("#buttonDeleteYes").click(function () {
+          $("#buttonDeleteYes").attr("disabled", "disabled");
+          clickcount++;
+          if (clickcount == 1) {
+                //Perform Delete Function
+                $.ajax({
+                   url: link_temprowDeleteByID,
+                   type: 'POST',
+                   data: JSON.stringify(dataItem),
+                   dataType: 'json',
+                   contentType: 'application/json; charset=utf-8',
+                   success: function (result) {
+                      if (result.errorcode == 0) {
+                         vgrid.dataSource.remove(dataItem);
+                         setNotification(result.title, result.msg, 'success');
+                         vWindowModal.close();
+                         //window.location.reload();
+                      } else {
+                         setNotification("Warning", result.msg, 'danger');
+                         vWindowModal.close();
+
+                      }
+                   },
+                   error: function (jqXHR, textStatus, errorThrown) {
+                      setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+                   }
+
+                });
+          }
+      });
+
+      $("#buttonDeleteNo").click(function () {
+         vWindowModal.close();
+      });
+   }
+
+    function AddItem() {
+        var url = '@Url.Action("AddNewEngine", "Asset")';
+        window.location.href = url;
+        //window.open(url);
+    }
+    function EditItem(EnNo) {
+        var test = EnNo;
+        var vData = JSON.stringify(test);
+        var url =  '@Url.Action("DailyReportEdit", "Employee")?id=' + EnNo.trim();
+        window.location.href = url;
+        //window.open(url);
+    }
+    function DetailItem(EnNo) {
+        var test = EnNo;
+        var vData = JSON.stringify(test);
+        var url =  '@Url.Action("UpdateInfo", "Asset")?status=Detail&id=' + EnNo.trim();
+        //window.location.href = url;
+        window.open(url);
+    }
+  function grid_onDataBound(e) {
+      var _Edit = "Edit";
+      var _Delete = "Delete";
+      var grid = this;
+      var rows = this.items();
+        $(rows).each(function () {
+         var index = $(this).index() + 1
+             + ($("#grid").data("kendoGrid").dataSource.pageSize() * ($("#grid").data("kendoGrid").dataSource.page() - 1));
+         var rowLabel = $(this).find(".row-number");
+            $(rowLabel).html(index);
+      });
+
+
+      var trs = this.tbody.find('tr').each(function () {
+          var item = grid.dataItem($(this));
+
+          if (item.InspectionStatus == "Servicable") {
+              $(this).css('color', '#00cc00');
+          }
+
+          if ($('#canDelete').val() == "False") {
+              $(this).find('.k-remove').hide();
+
+          }
+
+      });
+   }
+
+   function grid_onRequestEnd(e) {
+       if (e.type === "create") {
+            if (!e.response.Errors) {
+                setNotification("@Fields.success_title", "Successfully saved", "success");
+                e.sender.read();
+            }
+        }
+    }
+    //--------------------------------------------------
+    function grid_onEdit(e) {
+
+        if (e.model.isNew() === true) {
+            e.container.kendoWindow("title", "Add New");
+            $('.k-grid-update').html('<span class="k-icon k-i-check"></span> Add');
+
+        }
+        else {
+
+        }
+
+    }
+
+</script>
+
+<script type="text/x-kendo-template" id="templateDelete">
+    <div class="k-edit-form-container">
+        <div class="nameEditor">
+            <div class="k-edit-label">Engine SN :</div>
+            <div class="k-edit-field"><input class="k-textbox" id="SerialNo" name="SerialNo" value="#=EneSerialNo#" readonly="readonly"> </div>@*style="text-transform: uppercase;"*@
+        </div>
+        <div class="nameEditor">
+            <div class="k-edit-label">Engine Model :</div>
+            <div class="k-edit-field"><input class="k-textbox" id="Model" name="Model" value="#=Model#" readonly="readonly"></div>
+        </div>
+        <div class="nameEditor">
+            <div class="k-edit-label">Engine CSN :</div>
+            <div class="k-edit-field"><input class="k-textbox" id="CSN" name="CSN" value="#=CSN#" readonly="readonly"></div>
+        </div>
+        <div class="nameEditor">
+            <div class="k-edit-label">Engine TSN :</div>
+            <div class="k-edit-field"><input class="k-textbox" id="TSN" name="TSN" value="#=TSN#" readonly="readonly"></div>
+        </div>
+        <div class="k-edit-buttons k-state-default">
+            <a role="button" id="buttonDeleteNo" class="k-button k-button-icontext k-grid-cancel" href="javascript:void(0);"><span class="k-icon k-i-cancel"></span>No</a>
+            <a role="button" id="buttonDeleteYes" class="k-button k-button-icontext k-primary k-grid-update" href="javascript:void(0);"><span class="k-icon k-i-check"></span>Yes</a>
+
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="templateAdd">
+</script>
+
+<script type="text/x-kendo-template" id="DeleteConfirm">
+</script>
+
+

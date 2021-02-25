@@ -1,0 +1,70 @@
+﻿/* Add here all your CSS customizations */
+
+span.login-logo-text {
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 8px;
+    font-weight: bolder;
+}
+
+span.login-logo-subtext {
+    color: #fff;
+    font-size: 11px;
+}
+
+.wrap-login-logo {
+    position: absolute;
+    top: 19%;
+    left: 33%;
+}
+
+.panel-title-sign {
+    display: block;
+}
+
+.k-input[readonly] {
+    background: #ddd !important;
+    color: #444;
+}
+
+    .k-input[readonly]:hover {
+        background: #ddd;
+    }
+
+    .k-input[readonly]:focus {
+        background: #ddd;
+    }
+
+.page-number.clickable.active {
+    background: #4286f4 none repeat scroll 0 0;
+    border-radius: 5px;
+    color: white;
+    margin: 2px;
+    padding: 10px;
+}
+
+.page-number.clickable {
+    background: lightgrey none repeat scroll 0 0;
+    border-radius: 5px;
+    margin: 1px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.new {
+    margin-top: -5px;
+    position: absolute;
+    right: 40px;
+    transform: rotate(35deg);
+}
+
+.gta-textarea {
+    width: 200px !important;
+    height: 100px !important;
+}
+
+[data-col="PackConvertion"],
+[id*="PackConvertion"] {
+    display: none;
+}

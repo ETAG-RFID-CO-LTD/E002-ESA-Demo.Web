@@ -1,0 +1,123 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "RFID Asset Management System";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="m-portlet m-portlet--tab">
+    <div class="m-portlet__head" style="background-color :#337ab7">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="flaticon-technology m--font-brand"></i>
+                </span>
+                <h3 class="m-portlet__head-text m--font-brand">
+                    Today
+                </h3>
+            </div>
+        </div>
+        <div class="m-portlet__head-tools">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <h3 class="m-portlet__head-text m--font-brand">@TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Myanmar Standard Time").ToString("dd-MMM-yyyy HH:mm")</h3>
+            </div>
+        </div>
+    </div>
+    <div id="form-panel" class="panel-body" data-loading-overlay="">
+        <div class="form-group m-form__group row">
+            <div class="col-md-3">
+                @*<div style="margin-top: 10px; margin-left: 5px; cursor: pointer;width: 15%">*@
+                <section class="panel">
+                    <div class="panel-body bg-success" style="background: #bde53c;">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 001</h4>
+                                    <div class="info" style="">
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding module : 1
+                                        </strong>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding part : 5
+                                        </strong>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding critical part : 4
+                                        </strong>
+                                        <p style="color:white;font-size: 1.2rem;font-weight:600;" id="TotalStockIn">
+                                            Status : Kitting
+                                        </p>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Overall Completion : 30 %
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                @*</div>*@
+            </div>
+            <div class="col-md-3">
+                <section class="panel">
+                    <div class="panel-body bg-primary">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 002</h4>
+                                    <div class="info" style="">
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding module : 2
+                                        </strong>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding part : 8
+                                        </strong>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Outstanding critical part : 7
+                                        </strong>
+                                        <p style="color:white;font-size: 1.2rem;font-weight:600;" id="TotalStockIn">
+                                            Status : Storage
+                                        </p>
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
+                                            Overall Completion : 40 %
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3">
+                <section class="panel">
+                    <div class="panel-body bg-warning" style="height: 186px;">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
+                                    <div class="info" style="">
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id=""></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3">
+                <section class="panel">
+                    <div class="panel-body" style="background-color: #FC6140;height:186px;">
+                        <div class="widget-summary">
+                            <div class="widget-summary-col">
+                                <div class="summary">
+                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
+                                    <div class="info">
+                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id=""></strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

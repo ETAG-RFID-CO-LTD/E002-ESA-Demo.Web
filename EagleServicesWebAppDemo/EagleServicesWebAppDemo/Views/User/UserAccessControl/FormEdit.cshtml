@@ -1,0 +1,590 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "User Access Right : Update";
+    ViewBag.ExcelName = "UserAccessRole_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    Layout = "~/Views/Shared/Layout.cshtml";
+    EagleServicesWebApp.Models.UserAccessRightMsg Fields = ViewData["UserAccessRightMsgSelect"] as EagleServicesWebApp.Models.UserAccessRightMsg;
+    var RoleNameData = ViewData["RoleName"] as String;
+    var MenuDataData = ViewData["MenuData"] as String;
+    var MenuSelectedData = ViewData["MenuSelectedData"] as String;
+    var MobileDataData = ViewData["MobileData"] as String;
+
+}
+@model EagleServicesWebApp.Models.RollRoyceSystem.Role_REC
+
+<div class="m-portlet m-portlet--tab">
+    <div class="m-portlet__head" style="background-color :#474749;">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon">
+                    <i class="flaticon-technology m--font-brand"></i>
+                </span>
+                <h3 class="m-portlet__head-text m--font-brand">
+                    Update Information
+                </h3>
+            </div>
+        </div>
+        <div class="m-portlet__head-tools">
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button id="submitButton" type="button" class="btn btn-secondary close-button btn-sm" onclick="UserAccessControlSave(); return false;"><i class="fa fa-save"></i> &nbsp; Update </button>
+                &nbsp; &nbsp;
+                <button type="reset" class="btn btn-secondary close-button btn-sm" onclick="location.href='@Url.Action("UserAccessRight", "User")'; return false;"><i class="fa fa-ban"></i> &nbsp;Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-portlet__body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group m-form__group row" style="display:none;">
+                    <div class="col-6">
+                        <input class="form-control m-input" type="text" value="@MenuDataData" id="MenuIDs" style="width:1000px;">
+                        <input class="form-control m-input" type="text" value="@MobileDataData" id="MoblieIDs" style="width:1000px;">
+                        <input class="form-control m-input" type="text" value="@MenuSelectedData" id="MenuSelectIDs" style="width:1000px;">
+                    </div>
+                </div>
+                <div class="form-group m-form__group row">
+                    <label for="example-text-input" class="col-3 col-form-label">
+                        Role Name
+                    </label>
+                    <div class="col-4 k-edit-field">
+                        <input type="text" id="RoleName" name="" value="@RoleNameData" style="width: 208px;" disabled="disabled" onkeypress="return blockSpecialChar(event)" class="k-input k-textbox" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="m-portlet__body">
+        <div class="form-group m-form__group row">
+            <label for="example-text-input" style="width:10%;padding-left: 15px;">
+                Menu Access
+            </label>
+            <div class="col-4">
+                <div>
+
+                    @(Html.Kendo().TreeView()
+                                                                                                                                                                                                .Name("treeview")
+                                                                                                                                                                                                .Checkboxes(checkboxes => checkboxes
+                                                                                                                                                                                                    .Name("checkedFiles")
+                                                                                                                                                                                                    .CheckChildren(true)
+                                                                                                                                                                                                )
+                                                                                                                                                                                                 .Events(events => events
+                                                                                                                                                                                                    .Check("onCheck")
+                                                                                                                                                                                                )
+                                                                                                                                                                                                .Items(treeview =>
+                                                                                                                                                                                                {
+                                                                                                                                                                                                    treeview.Add().Text("Select All").Id("All")
+                                                                                                                                                                                                       .SpriteCssClasses("rootfolder")
+                                                                                                                                                                                                       .Expanded(true)
+                                                                                                                                                                                                       .Items(root =>
+                                                                                                                                                                                                       {
+                                                                                                                                                                                                           root.Add().Text("Dashboard").Id("M0")
+                                                                                                                                                                                                                  .Checked(true);
+
+                                                                                                                                                                                                           root.Add().Text("Main").Id("M1")
+                                                                                                                                                                                                                  .Expanded(false)
+                                                                                                                                                                                                                  .SpriteCssClasses("folder")
+                                                                                                                                                                                                                  .Items(enquiry =>
+                                                                                                                                                                                                                  {
+
+
+                                                                                                                                                                                                                      enquiry.Add().Text("Data Import").Id("M1P2").SpriteCssClasses("html")
+                                                                                                                                                                                                                      .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(PartImport =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                     });
+
+                                                                                                                                                                                                                      enquiry.Add().Text("Part Master").Id("M1P1").SpriteCssClasses("html")
+                                                                                                                                                                                                              .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                             .Items(PartEnquiry =>
+                                                                                                                                                                                                             {
+                                                                                                                                                                                                                 PartEnquiry.Add().Text("Listing").Id("ItemListing").SpriteCssClasses("html");
+                                                                                                                                                                                                                 PartEnquiry.Add().Text("Insert").Id("ItemInsert").SpriteCssClasses("html");
+                                                                                                                                                                                                                 PartEnquiry.Add().Text("Update").Id("ItemUpdate").SpriteCssClasses("html");
+                                                                                                                                                                                                                 PartEnquiry.Add().Text("Delete").Id("ItemDelete").SpriteCssClasses("html");
+                                                                                                                                                                                                             });
+
+                                                                                                                                                                                                                      enquiry.Add().Text("Data Export").Id("M1P3").SpriteCssClasses("html")
+                                                                                                                                                                                                                      .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(PartExport =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                         //PartExport.Add().Text("Listing").Id("AssetExportListing").SpriteCssClasses("html");
+                                                                                                                                                                                                                         //PartExport.Add().Text("Delete").Id("AssetExportDelete").SpriteCssClasses("html");
+                                                                                                                                                                                                                     });
+
+                                                                                                                                                                                                                      enquiry.Add().Text("Engine Master").Id("M1P4").SpriteCssClasses("html")
+                                                                                                                                                                                                                      .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(Engine =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                         Engine.Add().Text("Listing").Id("EngineListing").SpriteCssClasses("html");
+                                                                                                                                                                                                                         Engine.Add().Text("Insert").Id("EngineInsert").SpriteCssClasses("html");
+                                                                                                                                                                                                                         Engine.Add().Text("Update").Id("EngineUpdate").SpriteCssClasses("html");
+                                                                                                                                                                                                                         Engine.Add().Text("Delete").Id("EngineDelete").SpriteCssClasses("html");
+                                                                                                                                                                                                                     });
+                                                                                                                                                                                                                       enquiry.Add().Text("Fan Blade").Id("M1P5").SpriteCssClasses("html")
+                                                                                                                                                                                                                      .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(blade =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                     });
+                                                                                                                                                                                                                  });
+
+                                                                                                                                                                                                           root.Add().Text("User").Id("M2")
+                                                                                                                                                                                                                 .Expanded(false)
+                                                                                                                                                                                                                 .SpriteCssClasses("folder")
+                                                                                                                                                                                                                 .Items(User =>
+                                                                                                                                                                                                                 {
+                                                                                                                                                                                                                     User.Add().Text("Users").Id("M2P1").SpriteCssClasses("html")
+                                                                                                                                                                                                                     .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(usersdataItem =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                         usersdataItem.Add().Text("Listing").Id("UsersListing").SpriteCssClasses("html");
+                                                                                                                                                                                                                         usersdataItem.Add().Text("Insert").Id("UsersInsert").SpriteCssClasses("html");
+                                                                                                                                                                                                                         usersdataItem.Add().Text("Update").Id("UsersUpdate").SpriteCssClasses("html");
+                                                                                                                                                                                                                         usersdataItem.Add().Text("Delete").Id("UsersDelete").SpriteCssClasses("html");
+                                                                                                                                                                                                                     });
+
+                                                                                                                                                                                                                     User.Add().Text("User Access Right").Id("M2P2").SpriteCssClasses("html")
+                                                                                                                                                                                                                     .Expanded(false) //add for new,update,delete
+                                                                                                                                                                                                                     .Items(userroledataItem =>
+                                                                                                                                                                                                                     {
+                                                                                                                                                                                                                         userroledataItem.Add().Text("Listing").Id("UserAccessRightListing").SpriteCssClasses("html");
+                                                                                                                                                                                                                         userroledataItem.Add().Text("Insert").Id("UserAccessRightInsert").SpriteCssClasses("html");
+                                                                                                                                                                                                                         userroledataItem.Add().Text("Update").Id("UserAccessRightUpdate").SpriteCssClasses("html");
+                                                                                                                                                                                                                         userroledataItem.Add().Text("Delete").Id("UserAccessRightDelete").SpriteCssClasses("html");
+                                                                                                                                                                                                                     });
+                                                                                                                                                                                                                 });
+                                                                                                                                                                                                       });
+                                                                                                                                                                                                })
+                    )
+                </div>
+            </div>
+            <div class="col-4">
+                <div>
+
+                    @(Html.Kendo().TreeView()
+                                                                                                                                                                                                       .Name("mobiletreeview")
+                                                                                                                                                                                                       .Checkboxes(checkboxes => checkboxes
+                                                                                                                                                                                                           .Name("checkedFiles")
+                                                                                                                                                                                                           .CheckChildren(true)
+                                                                                                                                                                                                       )
+                                                                                                                                                                                                        .Events(events => events
+                                                                                                                                                                                                           .Check("onCheckMobile")
+                                                                                                                                                                                                       )
+                                                                                                                                                                                                       .Items(treeview =>
+                                                                                                                                                                                                       {
+                                                                                                                                                                                                          treeview.Add().Text("Access to Window App").Id("M4")
+                                                                                                                                                                                                             .SpriteCssClasses("rootfolder")
+                                                                                                                                                                                                             .Expanded(true)
+                                                                                                                                                                                                             .Items(root =>
+                                                                                                                                                                                                             {
+                                                                                                                                                                                                             });
+                                                                                                                                                                                                       })
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+   function blockSpecialChar(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      return ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode == 32 || (charCode >= 48 && charCode <= 57));
+   }
+
+   function UserAccessControlSave() {
+      var voData = {
+         RoleName: $('#RoleName').val().trim(),
+         MenuID: $('#MenuIDs').val(),
+         MobileID: $('#MoblieIDs').val()
+      };
+      // alert(voData.RoleName);
+      // alert(voData.MenuID);
+      // alert(voData.MobileID);
+      var valid = checkControlAccessForm(voData);
+      if (valid.valid) {
+         $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UserAccessRight_Update", "User")',
+            data: JSON.stringify(voData),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            beforeSend: function () {
+               $('#submitButton').attr('disabled', 'disabled');
+               $('#submitButton').html('<img width="15px" src="assets/img/loading.gif" /> Loading...');
+            },
+            success: function (result) {
+
+               if (result.errorcode < 1) {
+                  $('.btn-primary').html('Success');
+                  setNotification(result.title, result.msg, 'success');
+                  setTimeout(function () {
+                     window.location.replace('@Url.Action("UserAccessRight", "User")');
+                  }, 1000);
+
+               } else {
+                  $("#submitButton").prop("disabled", false);
+                  $('#submitButton').html('Submit');
+                  setNotification(result.title, result.msg, 'danger');
+               }
+            }
+         });
+      } else {
+         setNotification("Form Validation", valid.msg, 'danger');
+      }
+   }
+
+   function checkControlAccessForm(voData) {
+      var valid = 1;
+      var msg = "";
+      if (voData.RoleName == "" && ($('#MenuIDs').val() == "0" || $('#MenuIDs').val().trim() == "") && ($('#MoblieIDs').val() == "0" || $('#MoblieIDs').val().trim() == "")) {
+         valid = 0; msg = "Role Name should not be empty" + "\r\n" + " <br />" + "Please select Access Menu" + "\r\n" + " <br />" + "Please select Mobile App" + "\r\n";
+      }
+      else if (voData.RoleName != "" && ($('#MenuIDs').val() == "0" || $('#MenuIDs').val().trim() == "") && ($('#MoblieIDs').val() == "0" || $('#MoblieIDs').val().trim() == "")) {
+         valid = 0; msg = "Please select Access Menu" + "\r\n" + " <br />" + "Please select Mobile App" + "\r\n";
+      }
+      else if (voData.RoleName == "" && ($('#MenuIDs').val() != "0" || $('#MenuIDs').val().trim() != "") && ($('#MoblieIDs').val() != "0" || $('#MoblieIDs').val().trim() != "")) {
+         valid = 0; msg = "Role Name should not be empty" + "\r\n";
+      }
+      else if (voData.RoleName == "" && ($('#MenuIDs').val() == "0" || $('#MenuIDs').val().trim() == "") && ($('#MoblieIDs').val() != "0" || $('#MoblieIDs').val().trim() != "")) {
+         valid = 0; msg = "Role Name should not be empty" + "\r\n";
+      }
+      else if (voData.RoleName == "" && ($('#MenuIDs').val() != "0" || $('#MenuIDs').val().trim() != "") && ($('#MoblieIDs').val() == "0" || $('#MoblieIDs').val().trim() == "")) {
+         valid = 0; msg = "Role Name should not be empty" + "\r\n";
+      }
+      else {
+         valid = 1; var msg = "";
+      }
+
+      var voRes = {
+         valid: valid,
+         msg: msg
+      }
+      return voRes;
+   }
+
+</script>
+
+<script>
+    var treeviewsMenuAccess;
+    var treeviewsMobileAccess;
+    $(document).ready(function () {
+        //alert($('#MenuSelectIDs').val());
+        treeviewsMenuAccess = $("#treeview").data("kendoTreeView");
+        CheckAllSelectedMenuNodes(treeviewsMenuAccess.dataSource.view());
+
+        treeviewsMobileAccess = $("#mobiletreeview").data("kendoTreeView");
+        CheckAllMobileNodes(treeviewsMobileAccess.dataSource.view());
+    });
+
+    function CheckAllSelectedMenuNodes(nodes) {
+        treeView = $("#treeview").data("kendoTreeView");
+        var _compare = "," + $('#MenuSelectIDs').val() + ",";
+        //console.log(_compare);
+        for (var i = 0; i < nodes.length; i++) {
+
+            var _CurrentNode = "," + nodes[i].id + ",";
+
+            if (nodes[i].id == "M0") {
+                if (_compare.includes("Dashboard")) {
+                    nodes[i].set("checked", true);
+                }
+            }
+            else {
+                if (_compare.includes(_CurrentNode)) {
+                    nodes[i].set("checked", true);
+                }
+                else nodes[i].set("checked", false);
+            }
+            if (nodes[i].hasChildren) {
+                CheckAllSelectedMenuNodes(nodes[i].children.view());
+            }
+        }
+    }
+
+
+    function CheckAllMenuNodes(nodes) {
+        treeView = $("#treeview").data("kendoTreeView");
+        var _compare = "," + $('#MenuIDs').val() + ",";
+        for (var i = 0; i < nodes.length; i++) {
+            var _CurrentNode = "," + nodes[i].id + ",";
+            if (_compare.includes(_CurrentNode)) {
+                nodes[i].set("checked", true);
+            }
+            if (nodes[i].hasChildren) {
+                CheckAllMenuNodes(nodes[i].children.view());
+            }
+        }
+    }
+
+    function CheckAllMobileNodes(nodes) {
+        treeView = $("#mobiletreeview").data("kendoTreeView");
+        var _compare = "," + $('#MoblieIDs').val() + ",";
+        for (var i = 0; i < nodes.length; i++) {
+            var _CurrentNode = "," + nodes[i].id + ",";
+            if (_compare.includes(_CurrentNode)) {
+                nodes[i].set("checked", true);
+            }
+            if (nodes[i].hasChildren) {
+                CheckAllMobileNodes(nodes[i].children.view());
+            }
+        }
+    }
+
+    // function that gathers IDs of checked nodesonCheck
+
+    var master1 = 0;
+    var master2 = 0;
+    var master3 = 0;
+    var Temp1 = 0;
+    var Temp2 = 0;
+    var Temp3 = 0;
+    var Temp4 = 0;
+    var Temp5 = 0;
+    var Temp6 = 0;
+    var Temp7 = 0;
+    var Temp8 = 0;
+
+    function checkedNodeIds(nodes, checkedNodes) {
+        for (var i = 0; i < nodes.length; i++) {
+            if (nodes[i].id == "M0") { nodes[i].set("checked", true); }
+            if (nodes[i].id == "M1") { master1 = 0; }
+            if (nodes[i].id == "M2") { master2 = 0; }
+            if (nodes[i].id == "M3") { master3 = 0; }
+            if (nodes[i].id == "ItemListing") { Temp1 = i; }
+            if (nodes[i].id == "AssetExportListing") { Temp2 = i; }
+            if (nodes[i].id == "EngineListing") { Temp7 = i; }
+            //if (nodes[i].id == "BladeListing") { Temp8 = i; }
+            if (nodes[i].id == "UsersListing") { Temp3 = i; }
+            if (nodes[i].id == "UserAccessRightListing") { Temp4 = i; }
+
+            if ((nodes[i].id == "ItemInsert" && nodes[i].checked == true) || (nodes[i].id == "ItemUpdate" && nodes[i].checked == true) ||
+                (nodes[i].id == "ItemDelete" && nodes[i].checked == true)) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (nodes[Temp1].id == 'ItemListing') {
+                    nodes[Temp1].set("checked", true);
+                    if (checkedNodes.indexOf('M1P1') == -1) {
+                        checkedNodes.push("M1P1");
+                    }
+                    if (checkedNodes.indexOf('ItemListing') == -1) {
+                        checkedNodes.push("ItemListing");
+                    }
+                }
+            }
+            else if (nodes[i].id == "ItemListing" && nodes[i].checked == true) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (checkedNodes.indexOf('M1P1') == -1) {
+                    checkedNodes.push("M1P1");
+                }
+            }
+
+            if ((nodes[i].id == "M1P2" && nodes[i].checked == true)) {
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+            }
+
+            if ((nodes[i].id == "AssetExportDelete" && nodes[i].checked == true)) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (nodes[Temp2].id == 'AssetExportListing') {
+                    nodes[Temp2].set("checked", true);
+                    if (checkedNodes.indexOf('M1P3') == -1) {
+                        checkedNodes.push("M1P3");
+                    }
+                    if (checkedNodes.indexOf('AssetExportListing') == -1) {
+                        checkedNodes.push("AssetExportListing");
+                    }
+                }
+            }
+            else if (nodes[i].id == "AssetExportListing" && nodes[i].checked == true) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (checkedNodes.indexOf('M1P3') == -1) {
+                    checkedNodes.push("M1P3");
+                }
+            }
+
+            if ((nodes[i].id == "EngineInsert" && nodes[i].checked == true) || (nodes[i].id == "EngineUpdate" && nodes[i].checked == true) ||
+                (nodes[i].id == "EngineDelete" && nodes[i].checked == true)) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (nodes[Temp7].id == 'EngineListing') {
+                    nodes[Temp7].set("checked", true);
+                    if (checkedNodes.indexOf('M1P4') == -1) {
+                        checkedNodes.push("M1P4");
+                    }
+                    if (checkedNodes.indexOf('EngineListing') == -1) {
+                        checkedNodes.push("EngineListing");
+                    }
+                }
+            }
+            else if (nodes[i].id == "EngineListing" && nodes[i].checked == true) {
+                nodes[master1].set("checked", true);
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+                if (checkedNodes.indexOf('M1P4') == -1) {
+                    checkedNodes.push("M1P4");
+                }
+            }
+
+            //if ((nodes[i].id == "BladeInsert" && nodes[i].checked == true) || (nodes[i].id == "BladeUpdate" && nodes[i].checked == true) ||
+            //    (nodes[i].id == "BladeDelete" && nodes[i].checked == true)) {
+            //    nodes[master1].set("checked", true);
+            //    if (checkedNodes.indexOf('M1') == -1) {
+            //        checkedNodes.push("M1");
+            //    }
+            //    if (nodes[Temp8].id == 'BladeListing') {
+            //        nodes[Temp8].set("checked", true);
+            //        if (checkedNodes.indexOf('M1P5') == -1) {
+            //            checkedNodes.push("M1P5");
+            //        }
+            //        if (checkedNodes.indexOf('BladeListing') == -1) {
+            //            checkedNodes.push("BladeListing");
+            //        }
+            //    }
+            //}
+            //else if (nodes[i].id == "BladeListing" && nodes[i].checked == true) {
+            //    nodes[master1].set("checked", true);
+            //    if (checkedNodes.indexOf('M1') == -1) {
+            //        checkedNodes.push("M1");
+            //    }
+            //    if (checkedNodes.indexOf('M1P5') == -1) {
+            //        checkedNodes.push("M1P5");
+            //    }
+            //}
+            if ((nodes[i].id == "M1P5" && nodes[i].checked == true)) {
+                if (checkedNodes.indexOf('M1') == -1) {
+                    checkedNodes.push("M1");
+                }
+            }
+            if ((nodes[i].id == "UsersInsert" && nodes[i].checked == true) || (nodes[i].id == "UsersUpdate" && nodes[i].checked == true) ||
+                (nodes[i].id == "UsersDelete" && nodes[i].checked == true)) {
+                nodes[master2].set("checked", true);
+                if (checkedNodes.indexOf('M2') == -1) {
+                    checkedNodes.push("M2");
+                }
+                if (nodes[Temp3].id == 'UsersListing') {
+                    nodes[Temp3].set("checked", true);
+                    if (checkedNodes.indexOf('M2P1') == -1) {
+                        checkedNodes.push("M2P1");
+                    }
+                    if (checkedNodes.indexOf('UsersListing') == -1) {
+                        checkedNodes.push("UsersListing");
+                    }
+                }
+            }
+            else if (nodes[i].id == "UsersListing" && nodes[i].checked == true) {
+                nodes[master2].set("checked", true);
+                if (checkedNodes.indexOf('M2') == -1) {
+                    checkedNodes.push("M2");
+                }
+                if (checkedNodes.indexOf('M2P1') == -1) {
+                    checkedNodes.push("M2P1");
+                }
+            }
+
+            if ((nodes[i].id == "UserAccessRightInsert" && nodes[i].checked == true) || (nodes[i].id == "UserAccessRightUpdate" && nodes[i].checked == true) ||
+                (nodes[i].id == "UserAccessRightDelete" && nodes[i].checked == true)) {
+                nodes[master2].set("checked", true);
+                if (checkedNodes.indexOf('M2') == -1) {
+                    checkedNodes.push("M2");
+                }
+                if (nodes[Temp4].id == 'UserAccessRightListing') {
+                    nodes[Temp4].set("checked", true);
+                    if (checkedNodes.indexOf('M2P2') == -1) {
+                        checkedNodes.push("M2P2");
+                    }
+                    if (checkedNodes.indexOf('UserAccessRightListing') == -1) {
+                        checkedNodes.push("UserAccessRightListing");
+                    }
+                }
+            }
+            else if (nodes[i].id == "UserAccessRightListing" && nodes[i].checked == true) {
+                nodes[master2].set("checked", true);
+                if (checkedNodes.indexOf('M2') == -1) {
+                    checkedNodes.push("M2");
+                }
+                if (checkedNodes.indexOf('M2P2') == -1) {
+                    checkedNodes.push("M2P2");
+                }
+            }
+
+            if (nodes[i].checked) {
+                checkedNodes.push(nodes[i].id);
+            }
+
+            if (nodes[i].hasChildren) {
+                checkedNodeIds(nodes[i].children.view(), checkedNodes);
+            }
+        }
+    }
+
+    // show checked node IDs on datasource change
+    function onCheck() {
+        var scollectionMenuID = document.getElementById('MenuIDs');
+        var checkedNodes = [],
+            treeView = $("#treeview").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+            scollectionMenuID.value = checkedNodes.join(",");
+        } else {
+            message = "No nodes checked.";
+            scollectionMenuID.value = "0";
+        }
+
+        //$("#result").html(message);
+    }
+
+    function onCheckMobile() {
+        var scollectionMoblieID = document.getElementById('MoblieIDs');
+        var checkedNodes = [],
+            treeView = $("#mobiletreeview").data("kendoTreeView"),
+            message;
+
+        checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+        if (checkedNodes.length > 0) {
+            message = checkedNodes.join(",");
+            scollectionMoblieID.value = checkedNodes.join(",");
+        } else {
+            message = "No nodes checked.";
+            scollectionMoblieID.value = "0";
+        }
+
+        //$("#result").html(message);
+    }
+
+</script>
+
+<style>
+    #treeview .k-sprite {
+        background-image: url("@Url.Content("~/Content/web/treeview/coloricons-sprite.png")");
+    }
+
+    .rootfolder { background-position: 0 0; }
+    .folder     { background-position: 0 -16px; }
+    .pdf        { background-position: 0 -32px; }
+    .html       { background-position: 0 -48px; }
+    .image      { background-position: 0 -64px; }
+</style>

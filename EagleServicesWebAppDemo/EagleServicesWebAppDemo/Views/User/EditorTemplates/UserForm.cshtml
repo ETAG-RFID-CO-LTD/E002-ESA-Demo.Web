@@ -1,0 +1,104 @@
+﻿@model EagleServicesWebApp.Models.RollRoyceSystem.User_REC
+
+@Html.HiddenFor(m => m.isActive)
+@Html.HiddenFor(m => m.CreatedDate)
+@Html.HiddenFor(m => m.UpdatedDate)
+
+<style type="text/css">
+</style>
+
+<div class="nameEditor">
+    <div class="k-edit-label">
+        User ID:
+    </div>
+    <div class="k-edit-field">
+        @Html.Kendo().TextBoxFor(m => m.UserID).HtmlAttributes(new { @maxlength = "50" })
+        @Html.ValidationMessageFor(m => m.UserID)
+    </div>
+</div>
+
+<div class="nameEditor">
+    <div class="k-edit-label">
+        Role :
+    </div>
+
+    <div class="k-edit-field">
+        @(Html.Kendo().DropDownListFor(m => m.RoleName)
+                                                                .Name("RoleName")
+                                                                .DataTextField("RoleName")
+                                                                .DataValueField("RoleName")
+                                                                .HtmlAttributes(new { style = "width:200px" })
+                                                                .OptionLabel("-- Select Role -- ")
+                                                                .Filter("contains")
+                                                                .DataSource(source =>
+                                                                {
+                                                                    source.Read(read =>
+                                                                    {
+                                                                        read.Action("GetLookUpRoleList", "User");
+                                                                    })
+                                                                    .ServerFiltering(true);
+                                                                })
+        )
+        @Html.ValidationMessageFor(m => m.RoleName)
+    </div>
+</div>
+
+<div class="nameEditor" id="divFirstName">
+    <div class="k-edit-label">
+        First Name :
+    </div>
+    <div class="k-edit-field">
+        @Html.Kendo().TextBoxFor(m => m.FirstName).HtmlAttributes(new { @maxlength = "250", @style = "width: 250px" })
+
+    </div>
+</div>
+
+<div class="nameEditor" id="divLastName">
+    <div class="k-edit-label">
+        Last Name :
+    </div>
+    <div class="k-edit-field">
+
+        @Html.Kendo().TextBoxFor(m => m.LastName).HtmlAttributes(new { @maxlength = "250", @style = "width: 250px" })
+
+    </div>
+</div>
+
+
+<div class="nameEditor" id="divstatus">
+    <div class="k-edit-label">
+        Status :
+    </div>
+    <div class="k-edit-field">
+
+        @(Html.Kendo().DropDownListFor(m => m.Status)
+                                                                                        .Name("Status")
+                                                                                        .DataTextField("Status")
+                                                                                        .DataValueField("Status")
+                                                                                        .HtmlAttributes(new { style = "width:150px" })
+                                                                                        .DataSource(source =>
+                                                                                        {
+                                                                                            source.Read(read =>
+                                                                                            {
+                                                                                                read.Action("GetLookUpStatus", "User");
+                                                                                            })
+                                                                                            .ServerFiltering(true);
+                                                                                        })
+        )
+        @Html.ValidationMessageFor(m => m.Status)
+
+    </div>
+</div>
+<script type="text/javascript">
+    function testInput(event) {
+        var value = String.fromCharCode(event.which);
+        var pattern = new RegExp(/[0-9a-zåäö ]/i);
+        if (pattern.test(value) === false)
+            setNotification("Form Validation", 'All textboxes only allow alphanumeric characters (A-Z, a-z, 0-9)', 'danger');
+        return pattern.test(value);
+    }
+
+    $('#UserID').bind('keypress', testInput);
+    $('#FirstName').bind('keypress', testInput);
+    $('#LastName').bind('keypress', testInput);
+</script>

@@ -1,0 +1,311 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+    ViewBag.Title = "Users";
+    ViewBag.ExcelName = "Users_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    Layout = "~/Views/Shared/Layout.cshtml";
+    int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
+    EagleServicesWebApp.Models.LogInMsg Fields = ViewData["LogInMsgSelect"] as EagleServicesWebApp.Models.LogInMsg;
+    EagleServicesWebApp.Models.CommonRoleAccessModel roleModel = System.Web.HttpContext.Current.Session["Roles"] as EagleServicesWebApp.Models.CommonRoleAccessModel;
+
+}
+<input type="text" id="canAdd" value="@roleModel.IsAllowAdd.ToString()" hidden="hidden" />
+<input type="text" id="canDelete" value="@roleModel.IsAllowDelete.ToString()" hidden="hidden" />
+<input type="text" id="canUpdate" value="@roleModel.IsAllowEdit.ToString()" hidden="hidden" />
+<div class="row">
+    <div class="col-xs-18 col-md-12">
+        @(Html.Kendo().Grid<EagleServicesWebApp.Models.RollRoyceSystem.User_REC>()
+                                                                    .Name("grid")
+                                                                    .Columns(columns =>
+                                                                    {
+                                                                        columns.Command(c => { c.Edit().Text(" "); c.Custom("Delete").Text(" ").IconClass("k-icon k-i-delete").Click("gridrow_onDelete"); c.Custom("confirm").Text(" ").IconClass("k-icon k-i-unlock").Click("gridrow_onConfirm"); }).Width(60);
+                                                                        columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
+                                                                    // columns.Bound(c => c.Department).Title("Department").Visible(false);
+
+                                                                    columns.Bound(c => c.UserID).Title("User ID").Width(80);
+                                                                            columns.Bound(c => c.RoleName).Title("User Role").Width(80);
+                                                                    //columns.Bound(c => c.DepartmentName).Title("Department").Width(100);
+                                                                    columns.Bound(c => c.FirstName).Title("First Name").Width(80);
+                                                                            columns.Bound(c => c.LastName).Title("Last Name").Width(80);
+                                                                            columns.Bound(c => c.Status).Title("Status").Width(50);
+                                                                        })
+                                                 .DataSource(ds => ds
+                                                     .Ajax()
+                                                     .Events(e => e.Error("grid_onError").RequestEnd("grid_onRequestEnd"))
+                                                     .Model(m => m.Id(r => r.UserID))
+                                                     .PageSize(_PSettingSize)
+                                                     .Create(c => c.Action("Users_Create", "User"))
+                                                     .Read(r => r.Action("Users_Read", "User"))
+                                                     .Update(r => r.Action("Users_Update", "User"))
+                                                 //.Destroy(r => r.Action("Users_Destroy", "User"))
+                                                 )
+                                                .Editable(e => e.Mode(GridEditMode.PopUp).TemplateName("UserForm").Window(w => w.Width(500)).DisplayDeleteConfirmation(false))
+                                                 .Excel(excel => excel
+                                                     .AllPages(true)
+                                                     .FileName(@ViewBag.ExcelName + ".xlsx")
+                                                     .Filterable(true)
+                                                     )
+                                                 .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound").Cancel("gridCancel"))
+                                                 .Filterable()
+                                                 .HtmlAttributes(new { style = "height:650px;" })
+                                                 .Pageable(p => p.Refresh(true))
+                                                 .Reorderable(r => r.Columns(true))
+                                                 .Resizable(r => r.Columns(true))
+                                                 .Sortable()
+                                                 .Scrollable()
+                                                 .ToolBar(t => t.Create().Text("Add New"))
+                                                 .ToolBar(t => t.Excel())
+        )
+    </div>
+</div>
+
+<script type="text/javascript">
+   function gridCancel(e) {
+      e.sender.dataSource.read();
+   }
+
+   var yourVariable = '@Session["UserID"]';
+   var _CurrentCommanAccess = '@Session["CommonAccess"]';
+
+   $('.k-grid-add').show();
+
+    if ($('#canAdd').val() == "False") {
+        $('.k-grid-add').hide();
+    }
+
+   function grid_onError(e) {
+      if (e.errors) {
+         var vMessage = "";//"Errors:\n";
+         $.each(e.errors, function (key, value) {
+            if ('errors' in value) {
+                $.each(value.errors, function () {
+                    if (this.indexOf('is not valid for CreatedDate.') !== -1 || this.indexOf('is not valid for UpdatedDate.') !== -1) {
+
+                    }
+                    else {
+                        vMessage += this + "\n";
+                    }
+               });
+            }
+         });
+
+         //vWindowModal.title("Error Info");
+         //vWindowModal.content(vMessage);
+         //vWindowModal.center().open();
+          setNotification('error', vMessage, 'danger');
+
+         var vGrid = $("#grid").data("kendoGrid");
+         vGrid.one("dataBinding", function (e) {
+            e.preventDefault();
+         });
+      }
+   }
+
+    var link_delete = "@Url.Action("Users_Destroy", "User")";
+
+
+    function gridrow_onDelete(e) {
+        var clickedOnce = 0;
+        e.preventDefault();
+
+        var vGrid = this;
+        var vRow = $(e.currentTarget).closest("tr");
+        var vData = vGrid.dataItem(vRow);
+
+        vWindowModal.title("Delete Confirmation?");
+        vWindowModal.content(vTemplateDelete(vData));
+        vWindowModal.center().open();
+
+        $("#buttonDeleteYes").click(function () {
+
+            if (clickedOnce == 0) {
+                //
+                //$("#buttonDeleteYes").attr('disabled', 'disabled');
+                $.ajax({
+                    url: link_delete,
+                    type: 'POST',
+                    data: JSON.stringify(vData),
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (result) {
+                        if (result.errorcode > 0) {
+                            vWindowModal.close();
+                            setNotification(result.title, result.msg, 'warning');
+                        } else {
+                            vGrid.removeRow(vRow);
+                            vWindowModal.close();
+                            setNotification("@Fields.success_title", "@Fields.Data_Delete_Success", "@Fields.success_Noti");
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        clickedOnce = 0;
+                        setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+                    }
+                });
+                clickedOnce = 1;
+            }
+            });
+
+        $("#buttonDeleteNo").click(function () {
+                vWindowModal.close();
+            });
+
+   }
+
+   var link_update = "@Url.Action("Users_UpdatePwd", "User")";
+
+   function gridrow_onConfirm(e) {
+
+      e.preventDefault();
+      var vGrid = this;
+      var vRow = $(e.currentTarget).closest("tr");
+
+      var vData = vGrid.dataItem(vRow);
+
+      vWindowModal.title("Default Password Reset Confirmation?");
+      vWindowModal.content(vTemplateDelete(vData));
+      vWindowModal.center().open();
+
+       $("#buttonDeleteYes").click(function () {
+         //Try to reset Pwd
+         $.ajax({
+            url: link_update,
+            type: 'POST',
+            data: JSON.stringify(vData),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (result) {
+               if (result.errorcode > 0) {
+                  vWindowModal.close();
+                  setNotification(result.title, result.msg, 'warning');
+
+               } else {
+                  vWindowModal.close();
+                  setNotification(result.title, result.msg, 'success');
+               }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+               setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+            }
+
+         });
+
+      });
+
+      $("#buttonDeleteNo").click(function () {
+         vWindowModal.close();
+      });
+   }
+
+  function grid_onDataBound(e) {
+      var _Edit = "Edit";
+      var _Delete = "Delete";
+      var grid = this;
+      var rows = this.items();
+        $(rows).each(function () {
+         var index = $(this).index() + 1
+             + ($("#grid").data("kendoGrid").dataSource.pageSize() * ($("#grid").data("kendoGrid").dataSource.page() - 1));
+         var rowLabel = $(this).find(".row-number");
+            $(rowLabel).html(index);
+      });
+
+      var trs = this.tbody.find('tr').each(function () {
+         var item = grid.dataItem($(this));
+
+          if ($('#canUpdate').val() == "False") {
+               //(this).find('.k-edit').hide();
+              $(this).find('.k-grid-edit').hide();
+              $(this).find('.k-grid-confirm').hide();
+          }
+
+          if ($('#canDelete').val() == "False") {
+              //$(this).find('.k-destory').hide();
+              $(this).find('.k-grid-Delete').hide();
+
+          }
+
+      });
+   }
+
+   function grid_onRequestEnd(e) {
+
+        if (e.type === "create") {
+            if (!e.response.Errors) {
+                setNotification("@Fields.success_title", "@Fields.Data_Add_Success", "@Fields.success_Noti");
+                e.sender.read();
+            }
+        }
+        else if (e.type === "update") {
+            if (!e.response.Errors) {
+               setNotification("@Fields.success_title", "@Fields.Data_Update_Success", "@Fields.success_Noti");
+                e.sender.read();
+                $("#grid").data("kendoGrid").refresh();
+            }
+      }
+    }
+    //--------------------------------------------------
+    function grid_onEdit(e) {
+
+        if (e.model.isNew() === true) {
+			e.container.kendoWindow("title", "Add New");
+            $('.k-grid-update').html('<span class="k-icon k-i-check"></span> Add');
+            //$("#UserID").attr("readonly", false);
+            //$('#UserID').prop('readonly', false);
+        }
+        else {
+           //$('#UserID').attr("disabled", "disabled");
+           e.container.kendoWindow("title", "Update Information");
+            var arg = e;
+            arg.container.data('kendoWindow').bind('activate', function (e) {
+
+            });
+                        $('#UserID').prop('readonly', true);
+
+
+                     //$("#UserID").attr("readonly", true);
+            //$('#UserID').removeAttr("readonly");
+                        //$('#UserID').addAttr("readonly");
+             //$('#UserID').prop('readonly', true);
+             //document.getElementById("UserID").readonly = true;
+            //$('#UserID').attr("disabled", "disabled");
+        }
+
+        $('.k-grid-update').on('dragstart drop', function(e){
+            e.preventDefault();
+            return false;
+        });
+
+        $('.k-grid-cancel').on('dragstart drop', function(e){
+            e.preventDefault();
+            return false;
+        });
+    }
+
+</script>
+
+<script type="text/x-kendo-template" id="templateDelete">
+    <div class="k-edit-form-container">
+        <div class="nameEditor">
+            <div class="k-edit-label">User ID:</div>
+            <div class="k-edit-field"><input class="k-textbox" id="UserID" name="UserID" value="#=UserID#" style="text-transform: uppercase;" readonly> </div>
+        </div>
+        <div class="nameEditor">
+            <div class="k-edit-label">Role:</div>
+            <div class="k-edit-field"><input class="k-textbox" id="RoleName" name="RoleName" value="#=RoleName#" readonly="readonly"></div>s
+        </div>
+        <div class="k-edit-buttons k-state-default">
+            <a role="button" id="buttonDeleteNo" class="k-button k-button-icontext k-grid-cancel" href="javascript:void(0);"><span class="k-icon k-i-cancel"></span>No</a>
+            <a role="button" id="buttonDeleteYes" class="k-button k-button-icontext k-primary k-grid-update" href="javascript:void(0);"><span class="k-icon k-i-check"></span>Yes</a>
+
+        </div>
+    </div>
+</script>
+<script type="text/x-kendo-template" id="templateAdd">
+</script>
+
+<script type="text/x-kendo-template" id="DeleteConfirm">
+</script>
+
+@*<script type="text/x-kendo-template" id="templateAdd">
+
+    </script>*@

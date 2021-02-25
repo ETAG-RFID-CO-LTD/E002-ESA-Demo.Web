@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Fields>
+  <!--Common Use-->
+  <textbox_Noti>All textboxes only allow alphanumeric characters (A-Z, a-z, 0-9)</textbox_Noti>
+  <Warning_Noti>warning</Warning_Noti>
+  <info_Noti>info</info_Noti>
+  <success_Noti>success</success_Noti>
+  <danger_Noti>danger</danger_Noti>
+  <errorcode_text>errorcode</errorcode_text>
+  <email_errorcode_text>email_errorcode</email_errorcode_text>
+  <title_text>title</title_text>
+  <msg_text>msg</msg_text>
+  <info_text>Info</info_text>
+  <form_validation_text>Form Validation</form_validation_text>
+  <no_errorcode>0</no_errorcode>
+  <error_code>100</error_code>
+  <success_title>Success</success_title>
+  <failed_title>Failed</failed_title>
+  <Ok_text>Ok</Ok_text>
+  <Error_text>Error</Error_text>
+  <primary_key_constraint_error>Violation of PRIMARY KEY constraint</primary_key_constraint_error>
+  <Permission_constraint_error>Access Denied</Permission_constraint_error>
+  <App_Error_text>Application Error:</App_Error_text>
+  <App_Error_Desp_text>Sorry, an error occurred while processing your request</App_Error_Desp_text>
+  <App_Permission_Error_text>Common Access Permission Error:</App_Permission_Error_text>
+  <App_Permission_Error_Desp_text>Access Denied</App_Permission_Error_Desp_text>
+  <SQL_Insert_Fail_Error>Failed to insert record!</SQL_Insert_Fail_Error>
+  <SQL_Delete_Fail_Error>Failed to delete record!</SQL_Delete_Fail_Error>
+  <SQL_Delete_Fail_Error1>Record has been deleted by another user</SQL_Delete_Fail_Error1>
+  <SQL_Update_Fail_Error>Failed to update record</SQL_Update_Fail_Error>
+  <SQL_Update_Fail_Error1>Record has been updated or deleted by another user</SQL_Update_Fail_Error1>
+  <LoadingImagePath>/Images/loading.gif</LoadingImagePath>
+  <DefaultPhotoName>no_photo.png</DefaultPhotoName>
+  <logo_Path>Images/logos.png</logo_Path>
+  <Data_Add_Success>Successfully saved</Data_Add_Success>
+   <Data_Add_Fail>Fail added</Data_Add_Fail>
+  <Data_Update_Success>Successfully updated</Data_Update_Success>
+   <Data_Update_Fail>Fail updated</Data_Update_Fail>
+  <Data_Delete_Success>Successfully deleted</Data_Delete_Success>
+
+  <!--LogIn -->
+  <LogIn_noMapping>Please contact system administrator</LogIn_noMapping>
+  <LogIn_redirect>Logging in...</LogIn_redirect>
+  <LogIn_Success>Successfully log in</LogIn_Success>
+  <LogIn_Failed>Login fail</LogIn_Failed>
+  <LogIn_Empty>User ID and Password should not be empty</LogIn_Empty>
+  <LogIn_EmptyId>User ID should not be empty</LogIn_EmptyId>
+  <LogIn_EmptyPwd>Password should not be empty</LogIn_EmptyPwd>
+  <LogIn_Invalid>Invalid User ID / Password</LogIn_Invalid>
+  <LogIn_InActive>User account is inactive</LogIn_InActive>
+  <LogIn_ChangePwd>Default Password Detected! Please change your password ASAP.Same message will be appear upon next login if you ignore the change password action</LogIn_ChangePwd>
+  <Pwd_Empty>Password is required</Pwd_Empty>
+  <NewPwd_Empty>New Password is required</NewPwd_Empty>
+  <ConfirmPwd_Empty>Confirm Password is required</ConfirmPwd_Empty>
+  <Pwd_Length_Validation>New Password length must be between 8 and 15</Pwd_Length_Validation>
+  <ConfirmPwd_Length_Validation>Confirm Password length must be between 8 and 15</ConfirmPwd_Length_Validation>
+  <NotEqual_Pwd>New Password and Confirm Password must be same</NotEqual_Pwd>
+  <Pwd_UpdateInfo>Password was changed successfully</Pwd_UpdateInfo>
+  <DefaultPwd_resetInfo>Default password successfully reset</DefaultPwd_resetInfo>
+  <UserID_Inused>UserID is currently in use!</UserID_Inused>
+
+
+  <!--General Table -->
+  <Data_Still_Using>Data is in use</Data_Still_Using>
+  <Data_AlreadyExit>Data already exists</Data_AlreadyExit>
+  <GeneralTable_Req> should not be empty</GeneralTable_Req>
+  <Map_Department_Req>Department should not be empty</Map_Department_Req>
+  <Map_CostCenter_Req>CostCenter should not be empty</Map_CostCenter_Req>
+  <Map_both_Req>Department and CostCenter should not be empty</Map_both_Req>
+  <DepartmentMapping>DEPARTMENTMAPPING</DepartmentMapping>
+  <Department>DEPARTMENT</Department>
+  <CostCenter>COSTCENTER</CostCenter>
+  <AssetPIC>ASSETPIC</AssetPIC>
+  <PAR>PAR</PAR>
+  <Responser>RESPONSER</Responser>
+  <AssetClass>ASSETCLASS</AssetClass>
+  <ActivityType>ACTIVITYTYPE</ActivityType>
+  <VendorCode>VENDORCODE</VendorCode>
+  <CustodyPerson>CUSTODYPERSON</CustodyPerson>
+  <CustodyPeron>CUSTODYPERON</CustodyPeron>
+  <Location>LOCATION</Location>
+  <Room>ROOM</Room>
+  <TaxIncentive>TAXINCENTIVE</TaxIncentive>
+
+  <!--Enquiry-->
+  <Favemsg>Fave should not be empty</Favemsg>
+  <ScrapStatusChange_Noti> Are you sure you want to change Scrap value?</ScrapStatusChange_Noti>
+  <ScrapFormNoEmpty_Noti> Scrap Form No should not be empty.</ScrapFormNoEmpty_Noti>
+  <NewAsset_Successfully_Save>New Asset Successfully registered</NewAsset_Successfully_Save>
+  <AssetNo_Dup_msg>Duplicate Asset Number</AssetNo_Dup_msg>
+  <DefaultPhotoPath>/Images/AssetImages/</DefaultPhotoPath>
+  <UploadPhotoPath>Images/AssetImages/</UploadPhotoPath>
+  <CostCenter_empty_Noti>Cost Center is required</CostCenter_empty_Noti>
+  <Department_empty_Noti>Department is required</Department_empty_Noti>
+  <AcqDate_empty_Noti>Acq Date is required</AcqDate_empty_Noti>
+  <RFIDID_empty_Noti>RFID ID is required</RFIDID_empty_Noti>
+  <RFID_Dup_Noti>RFID ID already exists. Please use other tag!</RFID_Dup_Noti>
+  <NFSAssetDesc_empty_Noti>NFS Asset Description is required</NFSAssetDesc_empty_Noti>
+  <ILMSAssetDesc_empty_Noti>ILMS Asset Description is required</ILMSAssetDesc_empty_Noti>
+  
+  <FixedAssetPIC_empty_Noti>Fixed Asset PIC is required</FixedAssetPIC_empty_Noti>
+  <AssetNo_empty_Noti>Asset Number is required</AssetNo_empty_Noti>
+  <CapitalizationPeriod_empty_Noti>Capitalization Period is required</CapitalizationPeriod_empty_Noti>
+  <AcquisitionValue_empty_Noti>Invalid Acquisition Value (SGD)</AcquisitionValue_empty_Noti>
+  <AssetStatus_empty_Noti>Asset Status is required</AssetStatus_empty_Noti>
+  <AssetClass_empty_Noti>Asset Class is required</AssetClass_empty_Noti>
+  <ActivityType_empty_Noti>Activity Type is required</ActivityType_empty_Noti>
+  <Responser_empty_Noti>Responser is required</Responser_empty_Noti>
+  <AssetName1_empty_Noti>Asset Name1 is required</AssetName1_empty_Noti>
+  <Scrap_empty_Noti>Scrap(Yes/No) is required</Scrap_empty_Noti>
+  <Quantity_empty_Noti>Invalid Quantity</Quantity_empty_Noti>
+  <Invalid_Asset_Cat_iLMS>Invalid Asset Cat(iLMS)</Invalid_Asset_Cat_iLMS>
+  <SubAssetNumberQuantity_Noti> Sub Asset Number Qty must be zero.</SubAssetNumberQuantity_Noti>
+  <Location_empty_Noti>Location is required</Location_empty_Noti>
+  <Room1_empty_Noti>Room1 is required</Room1_empty_Noti>
+  <PAR_empty_Noti>PAR is required</PAR_empty_Noti>
+  <IONumber_empty_Noti>IO Number is required</IONumber_empty_Noti>
+  <IODescription_empty_Noti>IO Description is required</IODescription_empty_Noti>
+  <IOCreationYear_empty_Noti>IO Creation Year is required</IOCreationYear_empty_Noti>
+  <CustFunding_empty_Noti>Cust Funding (Y/N) is required</CustFunding_empty_Noti>
+  <Invalid_SubAsset_Noti>Invalid Sub asset number</Invalid_SubAsset_Noti>
+  <InvalidMainAsset_Noti>Invalid Main asset number</InvalidMainAsset_Noti>
+  <Prefix_notMatch_Noti>Prefix of main asset number and sub asset number must be same</Prefix_notMatch_Noti>
+  <AssetNumber_notMatch_Noti>Prefix of main asset number and sub asset number must be same</AssetNumber_notMatch_Noti>
+  <AlreadyChoose_SubAsset_Noti>This sub asset number already selected</AlreadyChoose_SubAsset_Noti>
+  <MainAsset_Add_Success>New asset successfully registered</MainAsset_Add_Success>
+  <AssetNumber_AlreadyExit>Asset Number already exists!</AssetNumber_AlreadyExit>
+  <ManualEntry>Manual Entry</ManualEntry>
+  <!--Asset Tagging-->
+  <RFIDEmpty>RFID Tag ID should not be empty</RFIDEmpty>
+  <RFIDGdigit>RFID Tag ID must be 16 digits</RFIDGdigit>
+  <RFIDTagID_Add_Success>RFID Tag ID successfully added</RFIDTagID_Add_Success>
+  <RFIDTagID_AlreadyExit>RFID Tag ID already exists. Please use other tag!</RFIDTagID_AlreadyExit>
+  
+  <!--Asset Data Import-->
+  <AssetNumberdigits>Number of digits before '-' must be 6</AssetNumberdigits>
+  <ImportFileInValid>Allow*.xls,*.xlsx file only</ImportFileInValid>
+  <ReqColumn> column name is missing in excel file</ReqColumn>
+  <DuplicationPass>Pass</DuplicationPass>
+  <MissingColumn> Columns are missing in excel file. Please check file!</MissingColumn>
+  <DuplicationFail>Fail! Please check excel content!</DuplicationFail>
+  <checkexcel> Please check excel content!</checkexcel>
+
+  <engineSerialNo>ENGINE SERIAL NUMBER</engineSerialNo>
+  <engineModel>ENGINE MODEL</engineModel>
+  <engineCSN>ENGINE CSN</engineCSN>
+  <engineTSN>ENGINE TSN</engineTSN>
+
+  <Item>ITEM</Item>
+  <IPCReference>IPC REFERENCE</IPCReference>
+  <Nomenclature>NOMENCLATURE</Nomenclature>
+  <PartType>PART TYPE</PartType>
+  <PwelStandard>PWEL STANDARD</PwelStandard>
+  <PartStatus>PART STATUS</PartStatus>
+
+  <Excel_Data_Insert_Success>Successfully imported</Excel_Data_Insert_Success>
+  <Excel_Data_Insert_Fail>Data import failed</Excel_Data_Insert_Fail>
+  <!--<AssetNo_NeedToCheck> and Asset Indicator need to check</AssetNo_NeedToCheck>-->
+ 
+   <AssetNo_NeedToCheck>Asset Number and Asset Indicator mismatch</AssetNo_NeedToCheck>
+  <ExcelData_Empty> should not be empty. Please check excel content!</ExcelData_Empty>
+  <GeneralTable_Auto_Insert_Fail>Engine Info Insert Fail</GeneralTable_Auto_Insert_Fail>
+  <History_Action_NewAssetCreation>New Asset Creation</History_Action_NewAssetCreation>
+  <History_Action_AssetUpdate>Asset Data Updates</History_Action_AssetUpdate>
+  <History_Method>Data Import</History_Method>
+  <History_New_log>New Asset</History_New_log>
+  <History_Transfer_Log>Asset Transfer</History_Transfer_Log>
+  <History_Scrap_Log>Asset Scrap</History_Scrap_Log>
+  <History_Update_Log>Asset Update</History_Update_Log>
+  <Disposed>Disposed</Disposed>
+  <Excel_Data_Invalid> Please check excel content!</Excel_Data_Invalid>
+  <AssetNo_Duplicated> are duplicated</AssetNo_Duplicated>
+  <!--<Invalid_AssetStatus> are Invalid asset status</Invalid_AssetStatus>
+  <Invalid_AssetIndicator> are Invalid asset indicator</Invalid_AssetIndicator>-->
+   <Invalid_AssetStatus>PWEL STANDARD must be (YES/NO)</Invalid_AssetStatus>
+  <Invalid_AssetIndicator> Asset Indicator must be (Main/Sub)</Invalid_AssetIndicator>
+  <NoData_InExcel>No Data In Excel</NoData_InExcel>
+  <Invalid_date> invalid days or months or year</Invalid_date>
+ <DataTypeInvalid> data format is invalid</DataTypeInvalid>
+  <!--<Invalid_Scrap> are Invalid Scrap</Invalid_Scrap>
+  <Invalid_CustomerFunding> are Invalid Customer Funding</Invalid_CustomerFunding>-->
+   <Invalid_Scrap>  Fave must be (True/False)</Invalid_Scrap>
+  <Invalid_CustomerFunding> Customer Funding must be (Y/N)</Invalid_CustomerFunding>
+<Invalid_DateFormat> AcqDate must be date format (ddMMyyyy)</Invalid_DateFormat>
+   <Invalid_Qty> Quantity must be number</Invalid_Qty>
+   <InvalidQtyZero>Main Asset Number Qty must be greater than zero</InvalidQtyZero>
+   <Invalid_SDG>  must be number</Invalid_SDG>
+  
+  <!--User-->
+  <UserID_Dup>User ID already exists</UserID_Dup>
+  <Equal_DefPwd>Password and Default Password are same</Equal_DefPwd>
+  <CardIDdigit>Card ID length must be 24 digits</CardIDdigit>
+   
+
+  <!--User Access Right-->
+  <!--<UserAcces_Delete_Inused>User role deletion fail, role name currently in use!</UserAcces_Delete_Inused>-->
+  <UserAcces_Delete_Inused>This role is currently in use!</UserAcces_Delete_Inused>
+  <UserRole_Empty_Noti>Role Name should not be empty</UserRole_Empty_Noti>
+  <Common_Empty_Noti>Common Access should not be empty</Common_Empty_Noti>
+  <UserRole_Dup_Noti>Role Name already exists</UserRole_Dup_Noti>
+  <DataAccess_Empty_Noti>Need to select at least one from Data Access list</DataAccess_Empty_Noti>
+  <Deparment_Empty_Noti>Please select Finance OR PIC</Deparment_Empty_Noti>
+  <DataAccess_Empty_Notis>Please select Role Name and Data Access</DataAccess_Empty_Notis>
+  <AdminUserRole_Delete_Notis>Cannot delete Administrator Role!</AdminUserRole_Delete_Notis>
+  <SelectAllDep_msg>Can't select all both Department. Please select one</SelectAllDep_msg>
+  <PICDep_SelectMorethanOne_msg>PIC department Only eligable to select one department</PICDep_SelectMorethanOne_msg>
+  <SelectAllDep_SelectAll_msgNotify>Finance Department must select Data Access (ALL) fields</SelectAllDep_SelectAll_msgNotify>
+  <AllDep_Select_msgNotify>PIC Department must not select Data Access (ALL) fields</AllDep_Select_msgNotify>
+  <NoMenu_Noti>Please select one of the menus</NoMenu_Noti>
+  <NoDeparment_Noti>Data Access cannot be retrieved. Please do Department Mapping.</NoDeparment_Noti>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</Fields>

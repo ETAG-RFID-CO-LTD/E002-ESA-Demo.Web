@@ -1,0 +1,102 @@
+-----------Exception Details on  24/2/2021 12:52:01 PM-----------------
+Log Written Date: 24_Feb_2021
+
+Error Line No :L ine 104
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid object name 'LogIn_vw'.
+
+ Error Page Url: http://localhost:2149/Login/Auth
+
+User Host IP: ::1:::1
+
+
+Invalid object name 'LogIn_vw'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24/2/2021 5:49:48 PM-----------------
+Log Written Date: 24_Feb_2021
+
+Error Line No :L ne 1806
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+
+ Error Page Url: http://localhost:2149/Asset/Engine_Read
+
+User Host IP: ::1:::1
+
+
+Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24/2/2021 5:50:11 PM-----------------
+Log Written Date: 24_Feb_2021
+
+Error Line No :L ne 1806
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+
+ Error Page Url: http://localhost:2149/Asset/Engine_Read
+
+User Host IP: ::1:::1
+
+
+Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  24/2/2021 5:51:02 PM-----------------
+Log Written Date: 24_Feb_2021
+
+Error Line No :L ne 1806
+
+Error Exception: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Message : Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+
+ Error Page Url: http://localhost:2149/Asset/Engine_Read
+
+User Host IP: ::1:::1
+
+
+Invalid column name 'EneSerialNo'.
+Invalid column name 'Model'.
+Invalid column name 'CSN'.
+Invalid column name 'TSN'.
+--------------------------------*End*------------------------------------------
+
+
+

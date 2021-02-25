@@ -1,0 +1,32 @@
+﻿@using System.Threading;
+@using System.Globalization;
+
+@{ 
+    ViewBag.AppsName = "ESA";
+    ViewBag.Copyright = "Copyright © 2020 Etag. All rights reserved. v1.0";
+    ViewBag.Culture = System.Globalization.CultureInfo.CurrentCulture.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("Partials/MainAsset") <!-- This Main Asset Part -->
+<!-- begin::Body -->
+<body class="m-page--fluid m--skin- m-content--skin-light2 m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        @Html.Partial("Partials/MainHeader") <!-- This Main Header Part -->
+        <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body" style="background:#ffff">
+            <div id="m_aside_left" class="m-grid__item	m-aside-left  m-aside-left--skin-dark ">
+                @Html.Action("MainMenu", "Partial") <!-- This Main Menu Part -->
+            </div>
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <div class="m-content">
+                    @RenderBody() <!-- This Main Content -->
+                </div>
+            </div>
+        </div>
+        @*@Html.Partial("Partials/MainFooter")*@ <!-- This Main Footer Part -->
+    </div>
+    @Html.Partial("Partials/MainSidebar") <!-- This Main Sidebar Part -->
+</body>
+<!-- end::Body -->
+</html>

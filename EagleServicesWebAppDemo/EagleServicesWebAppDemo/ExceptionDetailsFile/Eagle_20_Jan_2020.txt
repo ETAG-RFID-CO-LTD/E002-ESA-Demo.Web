@@ -1,0 +1,42 @@
+-----------Exception Details on  20/1/2020 2:41:40 PM-----------------
+Log Written Date: 20_Jan_2020
+
+Error Line No :L ine 104
+
+Error Exception: EntityException
+
+Exception Type: System.Data.Entity.Core.EntityException
+
+Error Message : The underlying provider failed on Open.
+
+ Error Page Url: http://localhost:2149/Login/Auth
+
+User Host IP: ::1:::1
+
+
+The underlying provider failed on Open.
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  20/1/2020 3:55:23 PM-----------------
+Log Written Date: 20_Jan_2020
+
+Error Line No :L ne 1874
+
+Error Exception: RuntimeBinderException
+
+Exception Type: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException
+
+Error Message : Cannot apply indexing with [] to an expression of type 'System.Dynamic.DynamicObject'
+
+ Error Page Url: http://localhost:2149/Asset/AssetEnquiryByHome?dept=Admin %26 Finance Dept
+
+User Host IP: ::1:::1
+
+
+Cannot apply indexing with [] to an expression of type 'System.Dynamic.DynamicObject'
+--------------------------------*End*------------------------------------------
+
+
+

@@ -1,0 +1,38 @@
+﻿@using System.Configuration;
+
+@{
+    ViewBag.Title = "ST Engineering : RFID Asset Management System";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<div class="m-portlet m-portlet--tab" style="width:100%;height :100%">
+    <div class="m-portlet__head" style="background-color :#474749;">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text m--font-brand">
+                    Exception Error Occur.
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 100px;">
+        <div class="header" style="width: 900px; padding: 20px; border-width: 2px; border-style: solid;
+            border-color: #cecece; margin-left: auto; margin-right: auto;">
+            <div style="padding: 20px; font-size: 16px; font-family: Arial;">
+                An unexpected error has occurred. Please contact the system administrator.
+                <br />
+                <br />
+                Today Date : <b>@DateTime.Now.ToLongDateString()   @DateTime.Now.ToLongTimeString()   </b>.
+
+
+                <br />
+                For any questions, please contact (65) xxxxx.
+            </div>
+        </div>
+    </div>
+
+</div> 
+<style>
+
+</style>

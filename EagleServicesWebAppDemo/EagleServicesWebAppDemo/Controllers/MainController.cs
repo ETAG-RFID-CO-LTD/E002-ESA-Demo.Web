@@ -24,9 +24,11 @@ namespace EagleServicesWebApp.Controllers
     public class MainController : Controller
     {
         // GET: Main
-        public ActionResult Module()
+        public ActionResult Module(int? engine)
         {
-            System.Web.HttpContext.Current.Session["engineNo"] = 1;
+            System.Web.HttpContext.Current.Session["engineNo"] = engine != null ? engine : 1;
+            MainModel model = new MainModel();
+            System.Web.HttpContext.Current.Session["TitleName"] = model.GetEngineList().ToList().SingleOrDefault(s=>s.EngineID==engine).EngineName.Trim();
             return View();
         }
         public ActionResult Engine_Read([DataSourceRequest] DataSourceRequest poRequest)
@@ -54,6 +56,9 @@ namespace EagleServicesWebApp.Controllers
         public ActionResult Part(int moduleID)
         {
             System.Web.HttpContext.Current.Session["moduleID"] = moduleID;
+            MainModel model = new MainModel();
+            System.Web.HttpContext.Current.Session["TitleName"] = System.Web.HttpContext.Current.Session["TitleName"]!=null ? System.Web.HttpContext.Current.Session["TitleName"]:"" + 
+                                                                " > "+model.GetModuleList().ToList().SingleOrDefault(d => d.ModuleID == moduleID).ModuleName.Trim();
             return View();
         }
         public ActionResult Part_Read([DataSourceRequest] DataSourceRequest poRequest)

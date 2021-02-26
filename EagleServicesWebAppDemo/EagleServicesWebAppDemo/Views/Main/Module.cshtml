@@ -1,14 +1,22 @@
 ﻿@using System.Configuration;
 @using EagleServicesWebApp.Components;
 @{
-    ViewBag.Title = "Module";
+    if (System.Web.HttpContext.Current.Session["TitleName"] != null)
+    {
+        ViewBag.Title = System.Web.HttpContext.Current.Session["TitleName"].ToString();
+    }
+    else
+    {
+        ViewBag.Title = "Module";
+    }
     ViewBag.ExcelName = "Module_" + DateTime.Now.ToString("yyyyMMddHHmmss");
     Layout = "~/Views/Shared/Layout.cshtml";
     int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
-   
+
 }
 <div class="row">
-    <div class="col-xs-18 col-md-12">
+    <a class='k-button k-button-icontext' onclick='BackDashboard()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
+    <div class="col-xs-18 col-md-12" style="margin-top:26px">
         @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Module_Rec>()
                                                                                             .Name("grid")
                                                                                             .Columns(columns =>
@@ -49,6 +57,21 @@
 </div>
 
 <script type="text/javascript">
+    //toggle('.k-button k-button-icontext');
+    //function toggle(selector) {
+    //    var nodes = document.querySelectorAll(selector),
+    //        node,
+    //        styleProperty = function (a, b) {
+    //            return window.getComputedStyle ? window.getComputedStyle(a).getPropertyValue(b) : a.currentStyle[b];
+    //        };
+
+    //    [].forEach.call(nodes, function (a, b) {
+    //        node = a;
+
+    //        node.style.display = styleProperty(node, 'display') === 'block' ? 'none' : 'block';
+    //    });
+
+    //}
     function gridCancel(e) {
         e.sender.dataSource.read();
     }
@@ -138,8 +161,8 @@
       });
    }
 
-    function AddItem() {
-        var url = '@Url.Action("AddNewEngine", "Asset")';
+    function BackDashboard() {
+        var url = '@Url.Action("Home", "Dashboard")';
         window.location.href = url;
         //window.open(url);
     }

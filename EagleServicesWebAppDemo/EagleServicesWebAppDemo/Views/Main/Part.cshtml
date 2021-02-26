@@ -1,14 +1,22 @@
 ﻿@using System.Configuration;
 @using EagleServicesWebApp.Components;
 @{
-    ViewBag.Title = "Part";
+    if (System.Web.HttpContext.Current.Session["TitleName"] != null)
+    {
+        ViewBag.Title = System.Web.HttpContext.Current.Session["TitleName"];
+    }
+    else
+    {
+        ViewBag.Title = "Part";
+    }
     ViewBag.ExcelName = "Part_" + DateTime.Now.ToString("yyyyMMddHHmmss");
     Layout = "~/Views/Shared/Layout.cshtml";
     int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
 
 }
 <div class="row">
-    <div class="col-xs-18 col-md-12">
+    <a class='k-button k-button-icontext' onclick='closeTab()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
+    <div class="col-xs-18 col-md-12" style="margin-top:26px">
         @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Part_Rec>()
                                                             .Name("grid")
                                                             .Columns(columns =>
@@ -45,6 +53,9 @@
 </div>
 
 <script type="text/javascript">
+    function closeTab() {
+        window.close();
+    }
     function gridCancel(e) {
         e.sender.dataSource.read();
     }

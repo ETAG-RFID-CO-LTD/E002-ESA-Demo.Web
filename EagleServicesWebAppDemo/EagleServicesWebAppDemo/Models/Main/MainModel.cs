@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EagleServicesWebApp.Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
@@ -9,6 +10,7 @@ using System.Web;
 
 namespace EagleServicesWebApp.Models.Main
 {
+    #region EnumParameters
     //Change enum value to description value 
     internal static class Extensions
     {
@@ -21,7 +23,7 @@ namespace EagleServicesWebApp.Models.Main
     }
     public enum InspectionStatus
     {
-        Servicable =1,
+        Servicable = 1,
         [Description("External Repair")]
         //[EnumMember(Value = "External Repair")]
         ExternalRepair,
@@ -36,6 +38,20 @@ namespace EagleServicesWebApp.Models.Main
         Storage,
         Building
     }
+    #endregion
+
+    #region DBMaster
+    public class Engine
+    {
+        public int EngineID { get; set; }
+        public string EngineName { get; set; }
+    }
+    public class Module
+    {
+        public int ModuleID { get; set; }
+        public string ModuleName { get; set; }
+    }
+    #endregion
     public class Module_Rec
     {
         public string Module { get; set; }
@@ -62,8 +78,39 @@ namespace EagleServicesWebApp.Models.Main
         //    get { return InspectionStatus != null ? ((InspectionStatus)this.InspectionStatus).ToDescription() : ""; }
         //}
     }
+
+    public class Dashboard_REC
+    {
+        public int OutModule { get; set; }
+        public int OutPart { get; set; }
+        public int OutCritical { get; set; }
+        public string LastProcessStatus { get; set; }
+        public int OverallCompletion { get; set; }
+    }
     public class MainModel
     {
+        public List<Engine> GetEngineList()
+        {
+            string sql = "select EngineID,EngineName from [dbo].[tblEngineMaster]";
+
+            DatabaseContext db = new DatabaseContext();
+            List<SqlParameter> oParameters = new List<SqlParameter>();
+            SqlParameter[] vSqlParameter = oParameters.ToArray();
+            var data = db.Database.SqlQuery<Engine>(sql, vSqlParameter).ToList();
+            return data;
+
+        }
+        public List<Module> GetModuleList()
+        {
+            string sql = "select ModuleID,ModuleName from [dbo].[tblModuleMaster]";
+
+            DatabaseContext db = new DatabaseContext();
+            List<SqlParameter> oParameters = new List<SqlParameter>();
+            SqlParameter[] vSqlParameter = oParameters.ToArray();
+            var moduleData = db.Database.SqlQuery<Module>(sql, vSqlParameter).ToList();
+            return moduleData;
+
+        }
         public List<Module_Rec> GetModuleData(int engine)
         {
             string sql = "EXEC SEL_ModuleData @engineID";
@@ -91,6 +138,26 @@ namespace EagleServicesWebApp.Models.Main
             var partData = db.Database.SqlQuery<Part_Rec>(sql, vSqlParameter).ToList();
             return partData;
 
+        }
+        
+        public List<Dashboard_REC> GetDashboardData(int engine)
+        {
+            try
+            {
+                string sql = "EXEC SEL_DashboardData @engineID";
+
+                DatabaseContext db = new DatabaseContext();
+                List<SqlParameter> oParameters = new List<SqlParameter>();
+                oParameters.Add(new SqlParameter("@engineID", engine));
+                SqlParameter[] vSqlParameter = oParameters.ToArray();
+                var moduleData = db.Database.SqlQuery<Dashboard_REC>(sql, vSqlParameter).ToList();
+                return moduleData;
+            }
+            catch (Exception ex)
+            {
+                GlobalFunction.SendErrorToText(ex);
+                return null;
+            }
         }
     }
 }

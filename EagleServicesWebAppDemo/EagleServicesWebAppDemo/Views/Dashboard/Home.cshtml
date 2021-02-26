@@ -3,7 +3,14 @@
 @{
     ViewBag.Title = "RFID Asset Management System";
     Layout = "~/Views/Shared/Layout.cshtml";
+    List<EagleServicesWebApp.Models.Main.Engine> EngineData = ViewData["EngineData"] as List<EagleServicesWebApp.Models.Main.Engine>;
 }
+<style>
+    a, a:link, a:visited {
+        color: white;
+        text-decoration: none;
+    }
+</style>
 <div class="m-portlet m-portlet--tab">
     <div class="m-portlet__head" style="background-color :#337ab7">
         <div class="m-portlet__head-caption">
@@ -12,7 +19,7 @@
                     <i class="flaticon-technology m--font-brand"></i>
                 </span>
                 <h3 class="m-portlet__head-text m--font-brand">
-                    Today
+                    Dashboard
                 </h3>
             </div>
         </div>
@@ -22,102 +29,180 @@
             </div>
         </div>
     </div>
+    <p class="row"></p>
     <div id="form-panel" class="panel-body" data-loading-overlay="">
         <div class="form-group m-form__group row">
-            <div class="col-md-3">
-                @*<div style="margin-top: 10px; margin-left: 5px; cursor: pointer;width: 15%">*@
-                <section class="panel">
-                    <div class="panel-body bg-success" style="background: #bde53c;">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 001</h4>
-                                    <div class="info" style="">
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding module : 1
-                                        </strong>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding part : 5
-                                        </strong>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding critical part : 4
-                                        </strong>
-                                        <p style="color:white;font-size: 1.2rem;font-weight:600;" id="TotalStockIn">
-                                            Status : Kitting
-                                        </p>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Overall Completion : 30 %
-                                        </strong>
+            @if (EngineData != null)
+            {
+                <div class="col-md-3">
+                    @*<div style="margin-top: 10px; margin-left: 5px; cursor: pointer;width: 15%">*@
+                    <section class="panel">
+                        <div class="panel-body bg-success" style="background: #bde53c;">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">@EngineData[0].EngineName</h4>
+                                        <div class="info">
+                                            @if (EngineData[0].EngineID != 0)
+                                            {
+                                                EagleServicesWebApp.Models.Main.MainModel model = new EagleServicesWebApp.Models.Main.MainModel();
+                                                List<EagleServicesWebApp.Models.Main.Dashboard_REC> data = model.GetDashboardData(EngineData[0].EngineID).ToList();
+                                                if (data != null)
+                                                {
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">
+                                                        Outstanding module : <a href="@Url.Action("Module", "Main",new { engine =EngineData[0].EngineID })" class="elements"><span>@data[0].OutModule </span></a>
+                                                    </strong>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">
+                                                        Outstanding part : @data[0].OutPart
+                                                    </strong>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">
+                                                        Outstanding critical part : @data[0].OutCritical
+                                                    </strong>
+                                                    <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px" id="TotalStockIn">
+                                                        Status : @data[0].LastProcessStatus
+                                                    </p>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">
+                                                        Overall Completion : @data[0].OverallCompletion %
+                                                    </strong>
+                                                }
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                @*</div>*@
-            </div>
-            <div class="col-md-3">
-                <section class="panel">
-                    <div class="panel-body bg-primary">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 002</h4>
-                                    <div class="info" style="">
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding module : 2
-                                        </strong>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding part : 8
-                                        </strong>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Outstanding critical part : 7
-                                        </strong>
-                                        <p style="color:white;font-size: 1.2rem;font-weight:600;" id="TotalStockIn">
-                                            Status : Storage
-                                        </p>
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id="TotalStockIn">
-                                            Overall Completion : 40 %
-                                        </strong>
+                    </section>
+                    @*</div>*@
+                </div>
+                <div class="col-md-3">
+                    <section class="panel">
+                        <div class="panel-body bg-primary">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">@EngineData[1].EngineName</h4>
+                                        <div class="info">
+                                            @if (EngineData[1].EngineID != 0)
+                                            {
+                                                EagleServicesWebApp.Models.Main.MainModel model = new EagleServicesWebApp.Models.Main.MainModel();
+                                                List<EagleServicesWebApp.Models.Main.Dashboard_REC> data = model.GetDashboardData(EngineData[1].EngineID).ToList();
+                                                if (data != null)
+                                                {
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                        Outstanding module : <a href="@Url.Action("Module", "Main",new { engine =EngineData[1].EngineID })" class="elements"><span>@data[0].OutModule </span></a>
+                                                    </strong>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                        Outstanding part : @data[0].OutPart
+                                                    </strong>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                        Outstanding critical part : @data[0].OutCritical
+                                                    </strong>
+                                                    <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
+                                                        Status : @data[0].LastProcessStatus
+                                                    </p>
+                                                    <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                        Overall Completion : @data[0].OverallCompletion %
+                                                    </strong>
+                                                }
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-3">
-                <section class="panel">
-                    <div class="panel-body bg-warning" style="height: 186px;">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
-                                    <div class="info" style="">
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id=""></strong>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <section class="panel">
+                        <div class="panel-body bg-warning">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
+                                        <div class="info">
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding module : 0
+                                            </strong>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding part : 0
+                                            </strong>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding critical part : 0
+                                            </strong>
+                                            <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
+                                                Status : 
+                                            </p>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Overall Completion : 0 %
+                                            </strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
-            <div class="col-md-3">
-                <section class="panel">
-                    <div class="panel-body" style="background-color: #FC6140;height:186px;">
-                        <div class="widget-summary">
-                            <div class="widget-summary-col">
-                                <div class="summary">
-                                    <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
-                                    <div class="info">
-                                        <strong style="color:white;font-size: 1.8rem;font-weight:600;" id=""></strong>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <section class="panel">
+                        <div class="panel-body" style="background-color: #FC6140;">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
+                                        <div class="info">
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding module : 0
+                                            </strong>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding part : 0
+                                            </strong>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Outstanding critical part : 0
+                                            </strong>
+                                            <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px" >
+                                                Status : 
+                                            </p>
+                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                Overall Completion : 0 %
+                                            </strong>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </div>
+                    </section>
+                </div>
+            }
+            else
+            {
+                <p>Not To Show</p>
+            }
         </div>
     </div>
 </div>
+@*<script>
+        $(document).ready(function () {
+            var link_temprowDeleteByID = "@Url.Action("Outstanding_Read", "Dashboard")";
+            function getAllEmployees() {
+                $.ajax({
+                    url: link_temprowDeleteByID,
+                    dataType: "json",
+                    data: { engine: $("#drop2").val() },
+                    success: function (data) {
+                        var outstandingData = $('#emp');
+                        employeeTable.empty();
+
+                        $(data).each(function (index, emp) {
+                            outstandingData.append('<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
+                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
+                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
+                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>');
+                        });
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+        });
+    </script>*@

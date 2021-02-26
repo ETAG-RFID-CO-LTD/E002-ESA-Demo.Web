@@ -22,6 +22,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Text.RegularExpressions;
 using System.Threading;
+using EagleServicesWebApp.Models.Main;
 
 namespace EagleServicesWebApp.Controllers
 {
@@ -45,7 +46,16 @@ namespace EagleServicesWebApp.Controllers
 
             System.Web.HttpContext.Current.Session["PagerSettingSize"] = 30;
             #endregion
+            MainModel model = new MainModel();
+            ViewData["EngineData"] = model.GetEngineList().ToList();
             return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Outstanding_Read(int engine)
+        {
+            MainModel oClass = new MainModel();
+            var result = oClass.GetDashboardData(engine).ToList();
+            return Json(result);
         }
     }
 }

@@ -1,0 +1,9 @@
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\bin\EagleServicesWebApp.dll.config
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\bin\EagleServicesWebApp.dll
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\bin\EagleServicesWebApp.pdb
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\bin\stdole.dll
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\obj\Debug\EagleServicesWebAppDemo.csprojAssemblyReference.cache
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\obj\Debug\EagleServicesWebAppDemo.csproj.CoreCompileInputs.cache
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\obj\Debug\EagleServicesWebAppDemo.csproj.CopyComplete
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\obj\Debug\EagleServicesWebApp.dll
+D:\TRH\Github\E002-ESA-Demo.Web\EagleServicesWebAppDemo\EagleServicesWebAppDemo\obj\Debug\EagleServicesWebApp.pdb

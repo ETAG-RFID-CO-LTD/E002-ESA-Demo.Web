@@ -1,0 +1,211 @@
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll.config
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.pdb
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\stdole.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Antlr3.Runtime.pdb
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.SqlServer.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EPPlus.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Kendo.Mvc.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Extensions.Primitives.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Security.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Newtonsoft.Json.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Diagnostics.DiagnosticSource.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Helpers.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Mvc.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Optimization.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Razor.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Deployment.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Razor.xml
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\bg-BG\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\cs-CZ\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\da-DK\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\de-DE\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\es-ES\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-CA\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-FR\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\he-IL\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\it-IT\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\nl-NL\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pl-PL\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-BR\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-PT\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ro-RO\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ru-RU\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sk-SK\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sv-SE\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\tr-TR\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\uk-UA\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\zh-CN\Kendo.Mvc.resources.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csprojAssemblyReference.cache
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CoreCompileInputs.cache
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CopyComplete
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.dll
+D:\Project_EagleServices\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.pdb
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll.config
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.pdb
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\stdole.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Antlr3.Runtime.pdb
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.SqlServer.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\EPPlus.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Kendo.Mvc.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Extensions.Primitives.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Security.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\Newtonsoft.Json.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Diagnostics.DiagnosticSource.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Helpers.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Mvc.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Optimization.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Razor.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Deployment.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Razor.xml
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\bg-BG\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\cs-CZ\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\da-DK\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\de-DE\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\es-ES\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-CA\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-FR\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\he-IL\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\it-IT\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\nl-NL\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\pl-PL\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-BR\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-PT\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\ro-RO\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\ru-RU\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\sk-SK\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\sv-SE\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\tr-TR\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\uk-UA\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\bin\zh-CN\Kendo.Mvc.resources.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csprojAssemblyReference.cache
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CoreCompileInputs.cache
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CopyComplete
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.dll
+D:\EagleServices\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.pdb
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll.config
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.pdb
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\office.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Vbe.Interop.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\stdole.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Antlr3.Runtime.pdb
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.SqlServer.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EPPlus.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Kendo.Mvc.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Extensions.Primitives.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Security.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Newtonsoft.Json.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Helpers.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Mvc.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Optimization.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Razor.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Deployment.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Razor.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\office.xml
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\bg-BG\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\cs-CZ\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\da-DK\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\de-DE\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\es-ES\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-CA\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-FR\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\he-IL\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\it-IT\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\nl-NL\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pl-PL\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-BR\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-PT\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ro-RO\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ru-RU\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sk-SK\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sv-SE\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\tr-TR\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\uk-UA\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\zh-CN\Kendo.Mvc.resources.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CoreCompileInputs.cache
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CopyComplete
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.dll
+C:\ETAG\WEK\ESA\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.pdb
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll.config
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EagleServicesWebApp.pdb
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\stdole.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Antlr3.Runtime.pdb
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EntityFramework.SqlServer.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\EPPlus.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Kendo.Mvc.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Extensions.Primitives.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Microsoft.Owin.Security.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\Newtonsoft.Json.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Diagnostics.DiagnosticSource.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Helpers.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Mvc.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Optimization.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.Razor.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Deployment.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\System.Web.WebPages.Razor.xml
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\bg-BG\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\cs-CZ\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\da-DK\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\de-DE\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\es-ES\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-CA\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\fr-FR\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\he-IL\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\it-IT\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\nl-NL\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pl-PL\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-BR\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\pt-PT\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ro-RO\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\ru-RU\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sk-SK\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\sv-SE\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\tr-TR\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\uk-UA\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\bin\zh-CN\Kendo.Mvc.resources.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csprojAssemblyReference.cache
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CoreCompileInputs.cache
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CopyComplete
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebApp\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.pdb
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\bin\EagleServicesWebApp.dll.config
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\bin\EagleServicesWebApp.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\bin\EagleServicesWebApp.pdb
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\bin\stdole.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csprojAssemblyReference.cache
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CoreCompileInputs.cache
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.csproj.CopyComplete
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.dll
+D:\TRH\Project_EagleService\2.Source Code\EagleServicesWebAppDemo\EaglesServicesWebApp\obj\Debug\EagleServicesWebApp.pdb

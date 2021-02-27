@@ -59,7 +59,7 @@ namespace EagleServicesWebApp.Models.Main
         public int Complete { get; set; }
         public int OutstandingCritical { get; set; }
         public int OutstandingNonCritical { get; set; }
-        public int Repair { get; set; }
+        public int ExternalRepair { get; set; }
         public int Scrap { get; set; }
 
     }

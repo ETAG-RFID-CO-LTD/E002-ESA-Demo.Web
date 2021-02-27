@@ -50,6 +50,7 @@ namespace EagleServicesWebApp.Models.Main
     {
         public int ModuleID { get; set; }
         public string ModuleName { get; set; }
+        public string EngineName { get; set; }
     }
     #endregion
     public class Module_Rec
@@ -102,7 +103,8 @@ namespace EagleServicesWebApp.Models.Main
         }
         public List<Module> GetModuleList()
         {
-            string sql = "select ModuleID,ModuleName from [dbo].[tblModuleMaster]";
+            string sql = "select ModuleID,ModuleName, em.EngineName from [dbo].[tblModuleMaster] mm " +
+                "   left join [dbo].[tblEngineMaster] em on em.EngineID=mm.EngineID ";
 
             DatabaseContext db = new DatabaseContext();
             List<SqlParameter> oParameters = new List<SqlParameter>();

@@ -1,9 +1,9 @@
 ﻿@using System.Configuration;
 @using EagleServicesWebApp.Components;
 @{
-    if (System.Web.HttpContext.Current.Session["TitleName"] != null)
+    if (ViewData["Title"] != null)
     {
-        ViewBag.Title = System.Web.HttpContext.Current.Session["TitleName"].ToString();
+        ViewBag.Title = ViewData["Title"].ToString();
     }
     else
     {
@@ -176,7 +176,7 @@
     function DetailItem(EnNo) {
         var test = EnNo;
         var vData = JSON.stringify(test);
-        var url =  '@Url.Action("Part", "Main")?moduleID=' + EnNo.trim();
+        var url = '@Url.Action("Part", "Main")?moduleID=' + EnNo.trim();
         //window.location.href = url;
         window.open(url);
     }

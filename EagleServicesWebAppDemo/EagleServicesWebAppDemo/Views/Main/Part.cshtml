@@ -1,9 +1,9 @@
 ﻿@using System.Configuration;
 @using EagleServicesWebApp.Components;
 @{
-    if (System.Web.HttpContext.Current.Session["TitleName"] != null)
+    if (ViewData["Title"] != null)
     {
-        ViewBag.Title = System.Web.HttpContext.Current.Session["TitleName"];
+        ViewBag.Title = ViewData["Title"];
     }
     else
     {

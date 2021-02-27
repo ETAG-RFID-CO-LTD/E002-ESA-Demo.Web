@@ -58,18 +58,27 @@
                                                         <strong style="color:white;font-size: 1.6rem;font-weight:600;">
                                                             Outstanding module : <span>@data[0].OutModule </span>
                                                         </strong>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;" >
+                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
                                                             Outstanding part : @data[0].OutPart
                                                         </strong>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;" >
+                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
                                                             Outstanding critical part : @data[0].OutCritical
                                                         </strong>
-                                                        <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px" >
+                                                        <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
                                                             Status : @data[0].LastProcessStatus
                                                         </p>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Overall Completion : @data[0].OverallCompletion %
-                                                        </strong>
+                                                        if (data[0].OverallCompletion != 0)
+                                                        {
+                                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                                Overall Completion : @data[0].OverallCompletion %
+                                                            </strong>
+                                                        }
+                                                        else
+                                                        {
+                                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                                Overall Completion : - %
+                                                            </strong>
+                                                        }
                                                     }
                                                 }
                                             </div>
@@ -101,7 +110,8 @@
                                                     List<EagleServicesWebApp.Models.Main.Dashboard_REC> data = model.GetDashboardData(EngineData[1].EngineID).ToList();
                                                     if (data != null)
                                                     {
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;" >
+
+                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
                                                             Outstanding module : <span>@data[0].OutModule </span>
                                                         </strong>
                                                         <strong style="color:white;font-size: 1.6rem;font-weight:600;">
@@ -113,9 +123,19 @@
                                                         <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
                                                             Status : @data[0].LastProcessStatus
                                                         </p>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Overall Completion : @data[0].OverallCompletion %
-                                                        </strong>
+                                                        if (data[0].OverallCompletion != 0)
+                                                        {
+                                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                                Overall Completion : @data[0].OverallCompletion %
+                                                            </strong>
+                                                        }
+                                                        else
+                                                        {
+                                                            <strong style="color:white;font-size: 1.6rem;font-weight:600;">
+                                                                Overall Completion : - %
+                                                            </strong>
+                                                        }
+
                                                     }
                                                 }
                                             </div>
@@ -131,7 +151,7 @@
                         <div class="panel-body bg-warning">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:205px">
+                                    <div class="summary" style="height:203px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
                                             <div class="info">
@@ -149,7 +169,7 @@
                         <div class="panel-body" style="background-color: #FC6140;">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:205px">
+                                    <div class="summary" style="height:203px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
                                             <div class="info">

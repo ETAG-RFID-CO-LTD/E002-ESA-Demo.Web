@@ -21,10 +21,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:40:23</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/27/2021 13:04:04</publishTime>
+      <publishTime>02/27/2021 13:10:51</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/27/2021 13:04:04</publishTime>
+      <publishTime>02/27/2021 13:10:51</publishTime>
     </File>
     <File Include="bin/bg-BG/Kendo.Mvc.resources.dll">
       <publishTime>05/21/2020 14:40:04</publishTime>
@@ -2478,10 +2478,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/27/2021 13:03:55</publishTime>
+      <publishTime>02/27/2021 13:10:46</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml.user">
-      <publishTime>02/27/2021 12:07:13</publishTime>
+      <publishTime>02/27/2021 13:05:15</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/21/2020 14:40:02</publishTime>
@@ -8682,7 +8682,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:37</publishTime>
     </File>
     <File Include="Views/Dashboard/Home.cshtml">
-      <publishTime>02/27/2021 13:02:03</publishTime>
+      <publishTime>02/27/2021 13:09:28</publishTime>
     </File>
     <File Include="Views/Department/Department.cshtml">
       <publishTime>01/14/2020 19:34:12</publishTime>
@@ -8727,7 +8727,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="Views/Main/Module.cshtml">
-      <publishTime>02/27/2021 12:55:53</publishTime>
+      <publishTime>02/27/2021 13:09:24</publishTime>
     </File>
     <File Include="Views/Main/Part.cshtml">
       <publishTime>02/27/2021 12:56:06</publishTime>

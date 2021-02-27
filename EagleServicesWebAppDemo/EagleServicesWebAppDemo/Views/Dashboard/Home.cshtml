@@ -49,32 +49,8 @@
                                                     @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>*@
                                                 </span>
                                             </h4>
-                                            <div class="info">
-                                                @if (EngineData[0].EngineID != 0)
-                                                {
-                                                    EagleServicesWebApp.Models.Main.MainModel model = new EagleServicesWebApp.Models.Main.MainModel();
-                                                    List<EagleServicesWebApp.Models.Main.Dashboard_REC> data = model.GetDashboardData(EngineData[0].EngineID).ToList();
-                                                    if (data != null)
-                                                    {
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding module : <span>@data[0].OutModule </span>
-                                                        </strong>
-                                                        <br />
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding part : @data[0].OutPart
-                                                        </strong>
-                                                        <br />
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding critical part : @data[0].OutCritical
-                                                        </strong><br />
-                                                        <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
-                                                            Status : @data[0].LastProcessStatus
-                                                        </p>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Overall Completion : @data[0].OverallCompletion %
-                                                        </strong>
-                                                    }
-                                                }
+                                            <div class="info" id="eng1">
+
                                             </div>
                                         </div>
                                     </div>
@@ -98,31 +74,8 @@
                                                     @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>*@
                                                 </span>
                                             </h4>
-                                            <div class="info">
-                                                @if (EngineData[1].EngineID != 0)
-                                                {
-                                                    EagleServicesWebApp.Models.Main.MainModel model = new EagleServicesWebApp.Models.Main.MainModel();
-                                                    List<EagleServicesWebApp.Models.Main.Dashboard_REC> data = model.GetDashboardData(EngineData[1].EngineID).ToList();
-                                                    if (data != null)
-                                                    {
+                                            <div class="info" id="eng2">
 
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding module : <span>@data[0].OutModule </span>
-                                                        </strong><br />
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding part : @data[0].OutPart
-                                                        </strong><br />
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Outstanding critical part : @data[0].OutCritical
-                                                        </strong><br />
-                                                        <p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">
-                                                            Status : @data[0].LastProcessStatus
-                                                        </p>
-                                                        <strong style="color:white;font-size: 1.6rem;font-weight:600;">
-                                                            Overall Completion : @data[0].OverallCompletion %
-                                                        </strong>
-                                                    }
-                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +89,7 @@
                         <div class="panel-body bg-warning">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:203px">
+                                    <div class="summary" style="height:195px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
                                             <div class="info">
@@ -154,7 +107,7 @@
                         <div class="panel-body" style="background-color: #FC6140;">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:203px">
+                                    <div class="summary" style="height:195px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
                                             <div class="info">
@@ -176,10 +129,6 @@
     </div>
 </div>
 <script>
-   setTimeout(function () {
-        location.reload();
-    }, 10000);
-
     function DetailEngine(EnNo) {
         var test = EnNo;
         var vData = JSON.stringify(test);
@@ -211,30 +160,55 @@
             }
         });
     }*@
-</script>
-@*<script>
-        $(document).ready(function () {
-            var link_temprowDeleteByID = "@Url.Action("Outstanding_Read", "Dashboard")";
-            function getAllEmployees() {
-                $.ajax({
-                    url: link_temprowDeleteByID,
-                    dataType: "json",
-                    data: { engine: $("#drop2").val() },
-                    success: function (data) {
-                        var outstandingData = $('#emp');
-                        employeeTable.empty();
-
-                        $(data).each(function (index, emp) {
-                            outstandingData.append('<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
-                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
-                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>'
-                                + '<strong style="color:white;font-size: 1.6rem;font-weight:600;" id="TotalStockIn">' + emp.ID + '</strong>');
-                        });
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                });
-            }
+    $(document).ready(function () {
+        $("#eng1").ready(function () {
+            LoadDashData(1);
         });
-    </script>*@
+        $("#eng2").ready(function () {
+            LoadDashData(2);
+        });
+        setInterval(function () {
+            LoadDashData(1);
+        }, 12000);
+        setInterval(function () {
+            LoadDashData(2);
+        }, 15000);
+        function LoadDashData(EnNo) {
+            var voData = {
+                engine: EnNo
+            };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Outstanding_Read", "Dashboard")',
+                dataType: "json",
+                data: JSON.stringify(voData),
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    if (result.length > 0) {
+                        $('#eng' + EnNo).html('');
+                        for (var i = 0; i < result.length; i++) {
+                            $("#eng" + EnNo).append('<strong style="color:white;font-size: 1.6rem;font-weight:600;"> ' +
+                                'Outstanding module : <span>' + result[i].OutModule + '</span>' +
+                                '</strong> <br/>' +
+                                '<strong style="color:white;font-size: 1.6rem;font-weight:600;">' +
+                                '   Outstanding part : ' + result[i].OutPart +
+                                '</strong>  <br/>' +
+                                '<strong style="color:white;font-size: 1.6rem;font-weight:600;">' +
+                                '   Outstanding critical part :' + result[i].OutCritical +
+                                '</strong>  <br/>' +
+                                '<p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">' +
+                                '   Status : ' + result[i].LastProcessStatus +
+                                '</p>' +
+                                '<strong style="color:white;font-size: 1.6rem;font-weight:600;">' +
+                                '   Overall Completion : ' + result[i].OverallCompletion + ' %' +
+                                '</strong>');
+                        }
+                    }
+                },
+                error: function (error) {
+                    setNotification("Loading Error!!", error, 'danger');
+                }
+            });
+        }
+    });
+</script>

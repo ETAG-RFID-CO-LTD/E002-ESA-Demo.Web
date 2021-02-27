@@ -26,6 +26,7 @@
                                                                 columns.Bound(c => c.IsCritical).Title("C/NC").Width(30);
                                                                 columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(50);
                                                                 columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(50);
+                                                                columns.Bound(c => c.InspectionStatusID).Title("Status").Width(50).Hidden();
                                                                 columns.Bound(c => c.InspectionStatus).Title("Status").Width(50);
                                                             })
 .DataSource(ds => ds
@@ -180,7 +181,7 @@
       var trs = this.tbody.find('tr').each(function () {
           var item = grid.dataItem($(this));
 
-          if (item.InspectionStatus == "Serviceable") {
+          if (item.InspectionStatusID == 1) {
               $(this).css('background-color', '#00cc00');
           }
 

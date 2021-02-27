@@ -72,7 +72,7 @@ namespace EagleServicesWebApp.Models.Main
         public string TrolleyName { get; set; }
         public string StorageLocation { get; set; }
         public string InspectionStatus { get; set; }
-
+        public Int16? InspectionStatusID { get; set; }
         //Change into desc value from enum
         //public string InspectionStatusValue
         //{
@@ -127,7 +127,7 @@ namespace EagleServicesWebApp.Models.Main
         }
         public List<Part_Rec> GetPartData(int module)
         {
-            string sql = "select PartName,Case when IsCritical=0 then 'NC' else 'C' end as 'IsCritical' ,tm.TrolleyName,tm.StorageLocation,ips.InspectionStatusName as 'InspectionStatus' " +
+            string sql = "select PartName,Case when IsCritical=0 then 'NC' else 'C' end as 'IsCritical' ,tm.TrolleyName,tm.StorageLocation,ips.InspectionStatusName as 'InspectionStatus', ips.InspectionStatusID " +
                             " from[dbo].[tblPartMaster] pm" +
                             " left join [dbo].[tblTrolleyMaster] tm on tm.TrolleyID =pm.TrolleyID " +
                             " left join [dbo].[tblInspectionStatus] ips on pm.InspectionStatusID =ips.InspectionStatusID " +

@@ -46,7 +46,7 @@
                                                 @EngineData[0].EngineName
                                                 <span style="margin-right:100px;"></span>
                                                 <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
-                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>
+                                                @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>*@
                                             </h4>
                                             <div class="info">
                                                 @if (EngineData[0].EngineID != 0)
@@ -101,7 +101,7 @@
                                                 @EngineData[1].EngineName
                                                 <span style="margin-right:100px;"></span>
                                                 <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
-                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
+                                                @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>*@
                                             </h4>
                                             <div class="info">
                                                 @if (EngineData[1].EngineID != 0)
@@ -192,12 +192,15 @@
 </div>
 <script>
     function DetailEngine(EnNo) {
-        var test = EnNo;    
+        var test = EnNo;
         var vData = JSON.stringify(test);
         var url = '@Url.Action("Module", "Main")?engine=' + EnNo.trim();
         window.open(url);
     }
-    function RestEngine(EnNo) {
+    function RefreshPage(EnNo) {
+        window.location.reload();
+    }
+    @*function RestEngine(EnNo) {
         var voData = {
             engID: EnNo
         };
@@ -218,7 +221,7 @@
                 setNotification("Reset Error!!", error, 'danger');
             }
         });
-    }
+    }*@
 </script>
 @*<script>
         $(document).ready(function () {

@@ -15,7 +15,7 @@
 
 }
 <div class="row">
-    <a class='k-button k-button-icontext' onclick='BackDashboard()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
+    <a class='k-button k-button-icontext'  onclick='closeTab()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
     <div class="col-xs-18 col-md-12" style="margin-top:26px">
         @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Module_Rec>()
                                                                                             .Name("grid")
@@ -72,6 +72,9 @@
     //    });
 
     //}
+    function closeTab() {
+        window.close();
+    }
     function gridCancel(e) {
         e.sender.dataSource.read();
     }

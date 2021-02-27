@@ -191,11 +191,11 @@
     </div>
 </div>
 <script>
-     function DetailEngine(EnNo) {
-        var test = EnNo;
+    function DetailEngine(EnNo) {
+        var test = EnNo;    
         var vData = JSON.stringify(test);
-         var url =  '@Url.Action("Module", "Main")?engine=' + EnNo.trim();
-        window.location.href = url;
+        var url = '@Url.Action("Module", "Main")?engine=' + EnNo.trim();
+        window.open(url);
     }
     function RestEngine(EnNo) {
         var voData = {

@@ -28,7 +28,7 @@ namespace EagleServicesWebApp.Controllers
         {
             System.Web.HttpContext.Current.Session["engineNo"] = engine != null ? engine : 1;
             MainModel model = new MainModel();
-            System.Web.HttpContext.Current.Session["TitleName"] = model.GetEngineList().ToList().SingleOrDefault(s=>s.EngineID==engine).EngineName.Trim();
+            System.Web.HttpContext.Current.Session["TitleName"] = model.GetEngineList().ToList().SingleOrDefault(s=>s.EngineID== int.Parse(System.Web.HttpContext.Current.Session["engineNo"].ToString())).EngineName.Trim();
             return View();
         }
         public ActionResult Engine_Read([DataSourceRequest] DataSourceRequest poRequest)
@@ -53,12 +53,24 @@ namespace EagleServicesWebApp.Controllers
             }
             return new JsonResult() { Data = vResult.ToDataSourceResult(poRequest), JsonRequestBehavior = JsonRequestBehavior.AllowGet, MaxJsonLength = Int32.MaxValue };
         }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult ResetData(int engID)
+        {
+            if (engID != 0 )
+            {
+                MainModel oClass = new MainModel();
+                bool vResultdata = oClass.RestEnigne(engID);
+                return Json(new { result = vResultdata });
+            }
+            return Json(new { result = false });
+        }
         public ActionResult Part(int moduleID)
         {
             System.Web.HttpContext.Current.Session["moduleID"] = moduleID;
             MainModel model = new MainModel();
-            System.Web.HttpContext.Current.Session["TitleName"] = System.Web.HttpContext.Current.Session["TitleName"]!=null ? System.Web.HttpContext.Current.Session["TitleName"]:"" + 
-                                                                " > "+model.GetModuleList().ToList().SingleOrDefault(d => d.ModuleID == moduleID).ModuleName.Trim();
+            string moduleName = model.GetModuleList().ToList().SingleOrDefault(d => d.ModuleID == moduleID).ModuleName.Trim();
+            System.Web.HttpContext.Current.Session["TitleName"] = System.Web.HttpContext.Current.Session["TitleName"]!=null ? System.Web.HttpContext.Current.Session["TitleName"].ToString() + 
+                                                                " > "+ moduleName : moduleName;
             return View();
         }
         public ActionResult Part_Read([DataSourceRequest] DataSourceRequest poRequest)

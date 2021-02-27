@@ -26,9 +26,9 @@
                                                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
                                                                                                 columns.Bound(c => c.Module).Title("Module").Width(80);
                                                                                                 columns.Bound(c => c.Complete).Title("Completed %").Width(60);
-                                                                                                columns.Bound(c => c.OutstandingCritical).Title("Outstanding Critical").Width(60);
-                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(60);
-                                                                                                columns.Bound(c => c.Repair).Title("Repair").Width(60);
+                                                                                                columns.Bound(c => c.OutstandingCritical).Title("Outstanding Critical").Width(80);
+                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(80);
+                                                                                                columns.Bound(c => c.Repair).Title("External Repair").Width(60);
                                                                                                 columns.Bound(c => c.Scrap).Title("Scrap").Width(60);
                                                                                             })
                 .DataSource(ds => ds

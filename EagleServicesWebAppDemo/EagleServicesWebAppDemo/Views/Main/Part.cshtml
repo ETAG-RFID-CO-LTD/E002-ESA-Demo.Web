@@ -24,7 +24,7 @@
                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
                                                                 columns.Bound(c => c.PartName).Title("Part").Width(50);
                                                                 columns.Bound(c => c.IsCritical).Title("C/NC").Width(30);
-                                                                columns.Bound(c => c.TrolleyName).Title("Trolley").Width(50);
+                                                                columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(50);
                                                                 columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(50);
                                                                 columns.Bound(c => c.InspectionStatus).Title("Status").Width(50);
                                                             })
@@ -181,7 +181,7 @@
           var item = grid.dataItem($(this));
 
           if (item.InspectionStatus == "Servicable") {
-              $(this).css('color', '#00cc00');
+              $(this).css('background-color', '#00cc00');
           }
 
           if ($('#canDelete').val() == "False") {

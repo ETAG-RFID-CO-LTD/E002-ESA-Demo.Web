@@ -159,5 +159,35 @@ namespace EagleServicesWebApp.Models.Main
                 return null;
             }
         }
+        public bool RestEnigne(int enginID)
+        {
+            bool bReturn = true;
+            //------------------------------
+            try
+            {
+                string sSQL = " update [dbo].[tblPartMaster]" +
+                " set EPC = null, InspectionStatusID = null, TrolleyID = null, ProcessStatusID=0 " +
+                " where ModuleID in (select ModuleID  from [dbo].[tblModuleMaster] where EngineID =@engID)";
+
+                List<SqlParameter> oParameters = new List<SqlParameter>();
+                oParameters.Add(new SqlParameter("@engID",enginID));
+
+                SqlParameter[] vSqlParameter = oParameters.ToArray();
+
+                DatabaseContext oRemoteDB = new DatabaseContext();
+                int nReturn = oRemoteDB.Database.ExecuteSqlCommand(sSQL, vSqlParameter);
+
+                if (nReturn > 0)
+                    bReturn = true;
+                else
+                    bReturn = false;
+            }
+            catch (Exception ex)
+            {
+                bReturn = false;
+            }
+            //------------------------------
+            return bReturn;
+        }
     }
 }

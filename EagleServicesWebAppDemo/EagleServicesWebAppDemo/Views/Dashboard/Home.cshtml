@@ -193,10 +193,14 @@
     </div>
 </div>
 <script>
-    //setTimeout(function () {
-    //    location.reload();
-    //}, 10000);
-
+    
+    
+    $(document).ready(function () {
+        $('.summary').load();
+        setTimeout(function () {
+            $('.summary').load();
+        }, 10000);
+    });
     function DetailEngine(EnNo) {
         var test = EnNo;
         var vData = JSON.stringify(test);

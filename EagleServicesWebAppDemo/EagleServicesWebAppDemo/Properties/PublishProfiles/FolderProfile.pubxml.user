@@ -9,10 +9,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EagleServicesWebApp.dll">
-      <publishTime>02/27/2021 16:37:43</publishTime>
+      <publishTime>02/27/2021 17:45:11</publishTime>
     </File>
     <File Include="bin/EagleServicesWebApp.pdb">
-      <publishTime>02/27/2021 16:37:43</publishTime>
+      <publishTime>02/27/2021 17:45:11</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/21/2020 14:40:23</publishTime>
@@ -21,10 +21,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:40:23</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/27/2021 16:38:08</publishTime>
+      <publishTime>02/27/2021 17:45:41</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/27/2021 16:38:08</publishTime>
+      <publishTime>02/27/2021 17:45:40</publishTime>
     </File>
     <File Include="bin/bg-BG/Kendo.Mvc.resources.dll">
       <publishTime>05/21/2020 14:40:04</publishTime>
@@ -2478,10 +2478,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/27/2021 16:38:02</publishTime>
+      <publishTime>02/27/2021 17:45:27</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml.user">
-      <publishTime>02/27/2021 13:11:38</publishTime>
+      <publishTime>02/27/2021 16:39:05</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/21/2020 14:40:02</publishTime>
@@ -8682,7 +8682,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:37</publishTime>
     </File>
     <File Include="Views/Dashboard/Home.cshtml">
-      <publishTime>02/27/2021 16:35:14</publishTime>
+      <publishTime>02/27/2021 17:32:02</publishTime>
     </File>
     <File Include="Views/Department/Department.cshtml">
       <publishTime>01/14/2020 19:34:12</publishTime>
@@ -8730,7 +8730,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2021 13:09:24</publishTime>
     </File>
     <File Include="Views/Main/Part.cshtml">
-      <publishTime>02/27/2021 12:56:06</publishTime>
+      <publishTime>02/27/2021 17:36:22</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/Boolean.cshtml">
       <publishTime>05/21/2020 14:38:38</publishTime>
@@ -8790,7 +8790,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="Views/Shared/Partials/MainHeader.cshtml">
-      <publishTime>02/27/2021 15:12:04</publishTime>
+      <publishTime>02/27/2021 17:31:33</publishTime>
     </File>
     <File Include="Views/Shared/Partials/MainMenu.cshtml">
       <publishTime>05/21/2020 14:38:38</publishTime>

@@ -25,7 +25,7 @@
         </div>
         <div class="m-portlet__head-tools">
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-               @* <h3 class="m-portlet__head-text m--font-brand">@TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Myanmar Standard Time").ToString("dd-MMM-yyyy HH:mm")</h3>*@
+                @* <h3 class="m-portlet__head-text m--font-brand">@TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.UtcNow, "Myanmar Standard Time").ToString("dd-MMM-yyyy HH:mm")</h3>*@
             </div>
         </div>
     </div>
@@ -44,10 +44,10 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[0].EngineName
-                                                <span style="padding-left: 0px;float:right;">
-                                                    <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
-                                                    @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>*@
+                                                <span style="margin-right:100px;">
                                                 </span>
+                                                <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
+                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>
                                             </h4>
                                             <div class="info" id="eng1">
 
@@ -69,10 +69,11 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[1].EngineName
-                                                <span style="padding-left: 0px;float:right;">
-                                                    <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
-                                                    @*<a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>*@
+                                                <span style="margin-right:100px;">
                                                 </span>
+                                                <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
+                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
+
                                             </h4>
                                             <div class="info" id="eng2">
 
@@ -138,7 +139,7 @@
     function RefreshPage(EnNo) {
         window.location.reload();
     }
-    @*function RestEngine(EnNo) {
+    function RestEngine(EnNo) {
         var voData = {
             engID: EnNo
         };
@@ -150,6 +151,7 @@
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (data.result) {
+                    setNotification("Info", "Successful Reset", 'success');
                     window.location.reload();
                 } else {
                     setNotification("Warning", "Fail Reset", 'danger');
@@ -159,7 +161,7 @@
                 setNotification("Reset Error!!", error, 'danger');
             }
         });
-    }*@
+    }
     $(document).ready(function () {
         $("#eng1").ready(function () {
             LoadDashData(1);

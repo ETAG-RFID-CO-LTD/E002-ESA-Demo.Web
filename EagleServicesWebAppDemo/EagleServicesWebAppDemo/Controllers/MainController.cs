@@ -53,17 +53,17 @@ namespace EagleServicesWebApp.Controllers
             }
             return new JsonResult() { Data = vResult.ToDataSourceResult(poRequest), JsonRequestBehavior = JsonRequestBehavior.AllowGet, MaxJsonLength = Int32.MaxValue };
         }
-        //[AcceptVerbs(HttpVerbs.Post)]
-        //public ActionResult ResetData(int engID)
-        //{
-        //    if (engID != 0 )
-        //    {
-        //        MainModel oClass = new MainModel();
-        //        bool vResultdata = oClass.RestEnigne(engID);
-        //        return Json(new { result = vResultdata });
-        //    }
-        //    return Json(new { result = false });
-        //}
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult ResetData(int engID)
+        {
+            if (engID != 0)
+            {
+                MainModel oClass = new MainModel();
+                bool vResultdata = oClass.RestEnigne(engID);
+                return Json(new { result = vResultdata });
+            }
+            return Json(new { result = false });
+        }
         public ActionResult Part(int moduleID)
         {
             System.Web.HttpContext.Current.Session["moduleID"] = moduleID;

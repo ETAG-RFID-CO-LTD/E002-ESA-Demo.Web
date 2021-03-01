@@ -44,7 +44,7 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[0].EngineName
-                                                <span style="margin-right:100px;">
+                                                <span style="margin:0px 85px 5px 5px;">
                                                 </span>
                                                 <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
                                                 <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>
@@ -69,7 +69,7 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[1].EngineName
-                                                <span style="margin-right:100px;">
+                                                <span style="margin:0px 85px 5px 5px;">
                                                 </span>
                                                 <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
                                                 <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
@@ -90,7 +90,7 @@
                         <div class="panel-body bg-warning">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:195px">
+                                    <div class="summary" style="height:233px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
                                             <div class="info">
@@ -108,7 +108,7 @@
                         <div class="panel-body" style="background-color: #FC6140;">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:195px">
+                                    <div class="summary" style="height:233px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
                                             <div class="info">
@@ -201,6 +201,9 @@
                                 '<p style="color:white;font-size: 1.2rem;font-weight:600;padding-top:10px">' +
                                 '   Status : ' + result[i].LastProcessStatus +
                                 '</p>' +
+                                '<strong style="color:white;font-size: 1.6rem;font-weight:600;">' +
+                                '   Kitting Completion : ' + result[i].KittingCompletion  + ' %' +
+                                '</strong> <br/>' +
                                 '<strong style="color:white;font-size: 1.6rem;font-weight:600;">' +
                                 '   Overall Completion : ' + result[i].OverallCompletion + ' %' +
                                 '</strong>');

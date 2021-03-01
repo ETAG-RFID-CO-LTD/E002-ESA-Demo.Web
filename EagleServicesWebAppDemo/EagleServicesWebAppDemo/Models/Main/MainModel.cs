@@ -57,6 +57,7 @@ namespace EagleServicesWebApp.Models.Main
     {
         public string Module { get; set; }
         public int ModuleID { get; set; }
+        public int KittingComplete { get; set; }
         public int Complete { get; set; }
         public int OutstandingCritical { get; set; }
         public int OutstandingNonCritical { get; set; }
@@ -73,6 +74,7 @@ namespace EagleServicesWebApp.Models.Main
         public string StorageLocation { get; set; }
         public string InspectionStatus { get; set; }
         public Int16? InspectionStatusID { get; set; }
+        public string ProcessStatus { get; set; }
         //Change into desc value from enum
         //public string InspectionStatusValue
         //{
@@ -86,7 +88,9 @@ namespace EagleServicesWebApp.Models.Main
         public int OutPart { get; set; }
         public int OutCritical { get; set; }
         public string LastProcessStatus { get; set; }
+        public int KittingCompletion { get; set; }
         public int OverallCompletion { get; set; }
+
     }
     public class MainModel
     {
@@ -127,11 +131,7 @@ namespace EagleServicesWebApp.Models.Main
         }
         public List<Part_Rec> GetPartData(int module)
         {
-            string sql = "select PartName,Case when IsCritical=0 then 'NC' else 'C' end as 'IsCritical' ,tm.TrolleyName,tm.StorageLocation,ips.InspectionStatusName as 'InspectionStatus', ips.InspectionStatusID " +
-                            " from[dbo].[tblPartMaster] pm" +
-                            " left join [dbo].[tblTrolleyMaster] tm on tm.TrolleyID =pm.TrolleyID " +
-                            " left join [dbo].[tblInspectionStatus] ips on pm.InspectionStatusID =ips.InspectionStatusID " +
-                            " where ModuleID = @moduleID ";
+            string sql = " EXEC SEL_PartData @moduleID";
 
             DatabaseContext db = new DatabaseContext();
             List<SqlParameter> oParameters = new List<SqlParameter>();
@@ -141,7 +141,7 @@ namespace EagleServicesWebApp.Models.Main
             return partData;
 
         }
-        
+
         public List<Dashboard_REC> GetDashboardData(int engine)
         {
             try
@@ -172,7 +172,7 @@ namespace EagleServicesWebApp.Models.Main
                 " where ModuleID in (select ModuleID  from [dbo].[tblModuleMaster] where EngineID =@engID)";
 
                 List<SqlParameter> oParameters = new List<SqlParameter>();
-                oParameters.Add(new SqlParameter("@engID",enginID));
+                oParameters.Add(new SqlParameter("@engID", enginID));
 
                 SqlParameter[] vSqlParameter = oParameters.ToArray();
 

@@ -24,12 +24,13 @@
                                                                                                 columns.Template(@<text></text>).ClientTemplate(
                                                                                                     "<a class='k-button k-detail' target='_blank'><span class='k-icon k-i-align-justify' onclick='DetailItem(\" #= ModuleID# \")'></span></a> ").Width(30);
                                                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
-                                                                                                columns.Bound(c => c.Module).Title("Module").Width(80);
+                                                                                                columns.Bound(c => c.Module).Title("Module").Width(60);
+                                                                                                columns.Bound(c => c.KittingComplete).Title("Kitting Completed  %").Width(80);
                                                                                                 columns.Bound(c => c.Complete).Title("Completed %").Width(60);
                                                                                                 columns.Bound(c => c.OutstandingCritical).Title("Outstanding Critical").Width(80);
-                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(80);
-                                                                                                columns.Bound(c => c.ExternalRepair).Title("External Repair").Width(60);
-                                                                                                columns.Bound(c => c.Scrap).Title("Scrap").Width(60);
+                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(100);
+                                                                                                columns.Bound(c => c.ExternalRepair).Title("External Repair").Width(70);
+                                                                                                columns.Bound(c => c.Scrap).Title("Scrap").Width(50);
                                                                                             })
                 .DataSource(ds => ds
                 .Ajax()

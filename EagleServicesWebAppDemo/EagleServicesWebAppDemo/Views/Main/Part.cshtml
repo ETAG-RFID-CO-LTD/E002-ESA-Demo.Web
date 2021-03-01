@@ -27,7 +27,8 @@
                                                                 columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(50);
                                                                 columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(50);
                                                                 columns.Bound(c => c.InspectionStatusID).Title("Status").Width(50).Hidden();
-                                                                columns.Bound(c => c.InspectionStatus).Title("Status").Width(50);
+                                                                columns.Bound(c => c.InspectionStatus).Title("Inspection Status").Width(50);
+                                                                columns.Bound(c => c.ProcessStatus).Title("Process Status").Width(50);
                                                             })
 .DataSource(ds => ds
                 .Ajax()

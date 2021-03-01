@@ -71,6 +71,7 @@
                                                 @EngineData[1].EngineName
                                                 <span style="margin:0px 85px 5px 5px;">
                                                 </span>
+                                                <span style="position: fixed; top: 1em; right: 1em;"></span>
                                                 <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
                                                 <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
 
@@ -90,7 +91,7 @@
                         <div class="panel-body bg-warning">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:233px">
+                                    <div class="summary" style="height:237px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 003</h4>
                                             <div class="info">
@@ -108,7 +109,7 @@
                         <div class="panel-body" style="background-color: #FC6140;">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
-                                    <div class="summary" style="height:233px">
+                                    <div class="summary" style="height:237px">
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">Enigne 004</h4>
                                             <div class="info">
@@ -158,7 +159,7 @@
                 }
             },
             error: function (error) {
-                setNotification("Reset Error!!", error, 'danger');
+                setNotification("Reset Error!!", "Fail Reload", 'danger');
             }
         });
     }

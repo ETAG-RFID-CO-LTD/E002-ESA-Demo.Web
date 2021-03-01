@@ -36,7 +36,7 @@
             {
                 <div class="col-md-3">
                     @*<div style="margin-top: 10px; margin-left: 5px; cursor: pointer;width: 15%">*@
-                    <section class="panel">
+                    <section class="panel" style="margin-right: 2px;">
                         <div class="panel-body bg-success" style="background: #bde53c;">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
@@ -44,12 +44,12 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[0].EngineName
-                                                <span style="margin:0px 85px 5px 5px;">
+                                                <span style="position: relative; top: 0; right: 0; float: right; ">
+                                                    <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
+                                                    <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>
                                                 </span>
-                                                <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[0].EngineID")'></span></a>
-                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[0].EngineID")'></span></a>
                                             </h4>
-                                            <div class="info" id="eng1">
+                                            <div class="info" id="eng1" style="padding-top:4px;">
 
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
                     @*</div>*@
                 </div>
                 <div class="col-md-3">
-                    <section class="panel">
+                    <section class="panel" style="margin-right: 2px;">
                         <div class="panel-body bg-primary">
                             <div class="widget-summary">
                                 <div class="widget-summary-col">
@@ -69,14 +69,15 @@
                                         <div style="padding: 8px 5px 5px">
                                             <h4 class="title" style="color:white;font-size: 1.5rem;text-transform:uppercase;">
                                                 @EngineData[1].EngineName
-                                                <span style="margin:0px 85px 5px 5px;">
+                                                @*<span style="margin:0px 85px 5px 5px;">
+                                                    </span>*@
+                                                <span style="position: relative; top: 0; right: 0; float: right; ">
+                                                    <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
+                                                    <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
                                                 </span>
-                                                <span style="position: fixed; top: 1em; right: 1em;"></span>
-                                                <a class='k-button k-detail' style="color:darkblue;"><span class='k-icon k-i-align-justify' onclick='DetailEngine("@EngineData[1].EngineID")'></span></a>
-                                                <a class='k-button' style="color:darkblue;"><span class='k-icon k-i-reset-sm' onclick='RestEngine("@EngineData[1].EngineID")'></span></a>
 
                                             </h4>
-                                            <div class="info" id="eng2">
+                                            <div class="info" id="eng2" style="padding-top:4px;">
 
                                             </div>
                                         </div>

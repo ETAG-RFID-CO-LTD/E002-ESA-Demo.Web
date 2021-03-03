@@ -1,0 +1,338 @@
+﻿@using System.Configuration;
+@using EagleServicesWebApp.Components;
+@{
+
+    ViewBag.Title = "Enquiry";
+    ViewBag.ExcelName = "Enquiry_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    Layout = "~/Views/Shared/Layout.cshtml";
+    int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
+
+}
+@model EagleServicesWebApp.Models.Main.Part
+<div class="col-md-12 panel-primary">
+    <header class="panel-heading">
+        <div id="panel-doc" class="panel-actions">
+        </div>
+        <h3 class="m-portlet__head-text m--font-brand">
+            Enquiry
+        </h3>
+    </header>
+
+    <div class="panel-body">
+        <div class="form-group m-form__group row">
+        </div>
+        <div class="form-group m-form__group row">
+            <div class="col-md-6">
+                <label class="k-edit-label" style="text-align:left;padding: 3px;">Engine</label>
+                <div class="k-edit-field">
+                    @(Html.Kendo().DropDownList()
+                                                    .Name("ddlEngine")
+                                                    .DataValueField("EngineID")
+                                                    .DataTextField("EngineName")
+                                                    .HtmlAttributes(new { style = "width:250px" })
+                                                    .OptionLabel("Select Engine")
+                                                    .SelectedIndex(0)
+                                                    .Filter("contains")
+                                                    .DataSource(source =>
+                                                    {
+                                                        source.Read(read =>
+                                                    {
+                                                        read.Action("GetEngineList", "Enquiry");
+                                                    })
+                                                    .ServerFiltering(true);
+                                                    })
+                    )
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="k-edit-label" style="text-align:left;padding: 3px;">Insepction Status</label>
+                <div class="k-edit-field">
+                    @(Html.Kendo().DropDownList()
+                                                    .Name("ddlInsepction")
+                                                    .DataValueField("InspectionStatusID")
+                                                    .DataTextField("InspectionStatusName")
+                                                    .HtmlAttributes(new { style = "width:250px" })
+                                                    .OptionLabel("Select Status")
+                                                    .SelectedIndex(0)
+                                                    .Filter("contains")
+                                                    .DataSource(source =>
+                                                    {
+                                                        source.Read(read =>
+                                                    {
+                                                        read.Action("GetInspectionList", "Enquiry");
+                                                    })
+                                                    .ServerFiltering(true);
+                                                    })
+                    )
+                </div>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <div class="col-md-6">
+                <label class="k-edit-label" style="text-align:left;padding: 3px;">Module</label>
+                <div class="k-edit-field">
+                    @(Html.Kendo().DropDownList()
+                                                    .Name("ddlModule")
+                                                    .DataTextField("ModuleName")
+                                                    .DataValueField("ModuleID")
+                                                    .HtmlAttributes(new { style = "width:250px" })
+                                                    .OptionLabel("Select Module")
+                                                    .SelectedIndex(0)
+                                                    .Filter("contains")
+                                                    .DataSource(source =>
+                                                    {
+                                                        source.Read(read =>
+                                                    {
+                                                        read.Action("GetModuleList", "Enquiry").Data("filterModule");
+                                                    })
+                                                    .ServerFiltering(true);
+                                                    }).AutoBind(false).CascadeFrom("ddlEngine")
+                    )
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="k-edit-label" style="text-align:left;padding: 3px;">Part Name</label>
+                <div class="k-edit-field">
+                    <input type="text" name=""  data-toggle="tooltip" id="PartName" class="k-input k-textbox" style="width: 190px;">
+                </div>
+            </div>
+        </div>
+        <div class="form-group m-form__group row">
+            <div class="col-md-6">
+                <div class="k-edit-field">
+                    <button id="submitButton" onclick="ListingByFilter(); return false;" style="width:100px;"><i class="el-icon-file-new"></i> Search</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="ClearAllData(); return false;" style="width:100px;">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-18 col-md-12" style="margin-top:26px">
+        @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Part_Enquiry>()
+                                                            .Name("grid")
+                                                            .Columns(columns =>
+                                                            {
+                                                            columns.Command(c => { c.Edit().Text(" "); }).Width(70);
+                                                            columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
+                                                                columns.Bound(c => c.PartName).Title("Part").Width(100);
+                                                                columns.Bound(c => c.IsCritical).Title("C/NC").Width(90);
+                                                                columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(150);
+                                                                columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(150);
+                                                                columns.Bound(c => c.InspectionStatusID).Title("Status").Width(50).Hidden();
+                                                                columns.Bound(c => c.InspectionStatusName).Title("Inspection Status").Width(150);
+                                                                columns.Bound(c => c.ProcessStatusName).Title("Process Status").Width(150);
+                                                                columns.Bound(c => c.ExternalVendorName).Title("External Vendor Name").Width(180);
+                                                                columns.Bound(c => c.ExpectedArrivalDateValue).Title("Expected Arrival/Return Date").Width(220);
+                                                            })
+.DataSource(ds => ds
+                .Ajax()
+                .Events(e => e.Error("grid_onError").RequestEnd("grid_onRequestEnd"))
+                .Model(m => m.Id(r => r.PartID))
+                .PageSize(_PSettingSize)
+                .Read(r => r.Action("Part_Read", "Enquiry").Data("additionalInfo"))
+                .Update(r => r.Action("Part_Update", "Enquiry"))
+                )
+                .AutoBind(false)
+                .Editable(e => e.Mode(GridEditMode.PopUp).TemplateName("UpdatePart").Window(w => w.Width(500)).DisplayDeleteConfirmation(false))
+                .Excel(excel => excel
+                .AllPages(true)
+                .FileName(@ViewBag.ExcelName + ".xlsx")
+                .Filterable(true)
+                )
+                .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound").Cancel("gridCancel"))
+                .Filterable()
+                .HtmlAttributes(new { style = "height:400px;" })
+                .Pageable(p => p.Refresh(true))
+                .Reorderable(r => r.Columns(true))
+                .Resizable(r => r.Columns(true))
+                .Sortable()
+                .Scrollable()
+                .ToolBar(t => t.Excel())
+        )
+    </div>
+</div>
+
+<script type="text/javascript">
+    function closeTab() {
+        window.close();
+    }
+    function gridCancel(e) {
+        e.sender.dataSource.read();
+    }
+
+    $('.k-grid-add').show();
+
+    if ($('#canAdd').val() == "False") {
+        $('.k-grid-add').hide();
+    }
+    function filterModule() {
+        var engID = $("#ddlEngine").val();
+        return {
+            engineID: engID
+        }
+    }
+    function additionalInfo() {
+        return {
+            enginID: $("#ddlEngine").val(), moduleID: $("#ddlModule").val(),
+            inspectionStatus: $("#ddlInsepction").val(), partName: $("#partName").val()
+        }
+    }
+    function ListingByFilter() {
+        $("#grid").data("kendoGrid").dataSource.read();
+    }
+    function grid_onError(e) {
+        if (e.errors) {
+            var vMessage = "";//"Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        vMessage += this + "\n";
+                    });
+                }
+            });
+            setNotification('warning', vMessage, 'warning');
+
+            var vGrid = $("#grid").data("kendoGrid");
+            vGrid.one("dataBinding", function (e) {
+                e.preventDefault();
+            });
+        }
+    }
+
+       var link_temprowDeleteByID = "@Url.Action("Engine_Destroy", "Asset")";
+    function DeleteRow(e) {
+        var vgrid = $("#grid").data("kendoGrid");
+        var datasource = vgrid.dataSource;
+        var dataItem = datasource.get(e);
+
+        if (dataItem.Model == null || dataItem.Model == '') {
+            dataItem.Model = '';
+        }
+
+        if (dataItem.CSN == null || dataItem.CSN == '') {
+            dataItem.CSN = '';
+        }
+
+        if (dataItem.TSN == null || dataItem.TSN == '') {
+            dataItem.TSN = '';
+        }
+
+
+        vWindowModal.title("Delete Confirmation?");
+        vWindowModal.content(vTemplateDelete(dataItem));
+        vWindowModal.center().open();
+
+        var clickcount = 0;
+
+        $("#buttonDeleteYes").click(function () {
+            $("#buttonDeleteYes").attr("disabled", "disabled");
+            clickcount++;
+            if (clickcount == 1) {
+                //Perform Delete Function
+                $.ajax({
+                    url: link_temprowDeleteByID,
+                    type: 'POST',
+                    data: JSON.stringify(dataItem),
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (result) {
+                        if (result.errorcode == 0) {
+                            vgrid.dataSource.remove(dataItem);
+                            setNotification(result.title, result.msg, 'success');
+                            vWindowModal.close();
+                            //window.location.reload();
+                        } else {
+                            setNotification("Warning", result.msg, 'danger');
+                            vWindowModal.close();
+
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        setNotification("Warning", jQuery.parseJSON(jqXHR.responseText), 'warning');
+                    }
+
+                });
+            }
+        });
+
+        $("#buttonDeleteNo").click(function () {
+            vWindowModal.close();
+        });
+    }
+
+  function grid_onDataBound(e) {
+      var _Edit = "Edit";
+      var _Delete = "Delete";
+      var grid = this;
+      var rows = this.items();
+        $(rows).each(function () {
+         var index = $(this).index() + 1
+             + ($("#grid").data("kendoGrid").dataSource.pageSize() * ($("#grid").data("kendoGrid").dataSource.page() - 1));
+         var rowLabel = $(this).find(".row-number");
+            $(rowLabel).html(index);
+      });
+
+
+      var trs = this.tbody.find('tr').each(function () {
+          var item = grid.dataItem($(this));
+
+          if (item.InspectionStatusID == 1) {
+              $(this).find('.k-grid-edit').hide();//$(this).css('background-color', '#00cc00');
+          }
+
+          if ($('#canDelete').val() == "False") {
+              $(this).find('.k-remove').hide();
+
+          }
+
+      });
+   }
+
+   function grid_onRequestEnd(e) {
+       if (e.type === "create") {
+            if (!e.response.Errors) {
+                setNotification("@Fields.success_title", "Successfully saved", "success");
+                e.sender.read();
+            }
+        }
+    }
+    //--------------------------------------------------
+    function grid_onEdit(e) {
+
+        if (e.model.isNew() === true) {
+            e.container.kendoWindow("title", "Add New");
+            //$('.k-grid-update').html('<span class="k-icon k-i-check"></span> Add');
+        }
+        else {
+            e.container.kendoWindow("title", "Update External Vendor Information");
+            var arg = e;
+            arg.container.data('kendoWindow').bind('activate', function (e) {
+
+            });
+            $('#PartID').prop('readonly', true); $('#PartID').css('background-color', '#eee');
+            $('#PartName').prop('readonly', true); $('#PartName').css('background-color', '#eee');
+        }
+
+        $('.k-grid-update').on('dragstart drop', function (e) {
+            e.preventDefault();
+            return false;
+        });
+
+        $('.k-grid-cancel').on('dragstart drop', function (e) {
+            e.preventDefault();
+            return false;
+        });
+    }
+
+</script>
+
+
+<script type="text/x-kendo-template" id="templateAdd">
+</script>
+
+<script type="text/x-kendo-template" id="DeleteConfirm">
+</script>
+
+

@@ -22,7 +22,7 @@
                                                                                             .Columns(columns =>
                                                                                             {
                                                                                                 columns.Template(@<text></text>).ClientTemplate(
-                                                                                                    "<a class='k-button k-detail' target='_blank'><span class='k-icon k-i-align-justify' onclick='DetailItem(\" #= ModuleID# \")'></span></a> ").Width(70);
+                                                                                                    "<a class='k-button k-detail' target='_blank' onclick='DetailItem(\" #= ModuleID# \")'><span class='k-icon k-i-align-justify'></span></a> ").Width(70);
                                                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
                                                                                                 columns.Bound(c => c.Module).Title("Module").Width(130);
                                                                                                 columns.Bound(c => c.RFIDTagComplete).Title("RFID Tag Association (G0) %").Width(220);

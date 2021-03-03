@@ -218,6 +218,7 @@
     <Compile Include="Components\Fields.cs" />
     <Compile Include="Components\GlobalFunction.cs" />
     <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\EnquiryController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -3092,6 +3093,7 @@
     <Content Include="Views\Dashboard\Home.cshtml" />
     <Content Include="Views\Main\Module.cshtml" />
     <Content Include="Views\Main\Part.cshtml" />
+    <Content Include="Views\Enquiry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\accent.png" />

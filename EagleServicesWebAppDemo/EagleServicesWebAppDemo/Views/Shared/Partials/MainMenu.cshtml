@@ -2,85 +2,48 @@
 @{ string URIsegment1 = (Request.Url.Segments.Length > 1) ? Request.Url.Segments[Request.Url.Segments.Length - 2].Replace("/", "") : ""; }
 @{ string SubURIsegment = (Request.Url.Segments.Length > 1) ? Request.Url.Segments[Request.Url.Segments.Length - 1] : ""; }
 @{
-    string activd = "";
+    string activeLeave = "";
     string active = "m-menu__item--open m-menu__item--expanded m-menu__item--active";
-    if (URIsegment == "" || URIsegment + SubURIsegment == "DashboardIndex") { activd = active; }
+    if (URIsegment == "Enquiry")
+    { activeLeave = active; }
 }
 <div id="m_ver_menu"
      class="m-aside-menu  m-aside-menu--skin-dark m-aside-menu--submenu-skin-dark"
      data-menu-vertical="true"
      data-menu-scrollable="false" data-menu-dropdown-timeout="500">
     <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
-        @{
 
-            foreach (var Parent in (dynamic)ViewData["ListMenuParent"])
-            {
-
-                string ClassExp = (@Parent.MenuName.Replace(" ", "") == URIsegment) ? "m-menu__item--open m-menu__item--expanded m-menu__item--active" : "";
-                List<EagleServicesWebApp.Models.Menu_REC> ListMenuChild = EagleServicesWebApp.Controllers.PartialController.ListMenuChild(Parent.MenuID);
-
-
-                if (ListMenuChild.Count > 0)
-                {
-                    <li class="m-menu__item m-menu__item--submenu @ClassExp" aria-haspopup="true" data-menu-submenu-toggle="hover">
-                        <a href="#" class="m-menu__link m-menu__toggle">
-                            <i class="m-menu__link-icon @Parent.MenuIcon"></i>
-                            <span class="m-menu__link-text">
-                                @Parent.Description
-                            </span>
-                            <i class="m-menu__ver-arrow la la-angle-right"></i>
-                        </a>
-                        <div class="m-menu__submenu">
-                            <span class="m-menu__arrow"></span>
-                            <ul class="m-menu__subnav">
-                                @{
-                                    foreach (var Child in ListMenuChild.OrderBy(x => x.Ordering))
-                                    {
-                                        string ClassAtive = (Child.MenuName.Replace(" ", "") == SubURIsegment) ? "m-menu__item--active" : "";
-                                        <li class="m-menu__item @ClassAtive" aria-haspopup="true">
-                                            <a href="@Url.Action(Child.MenuName.Replace(" ", ""), Parent.MenuName.Replace(" ", ""))" class="m-menu__link ">
-                                                <i class="m-menu__link-bullet m-menu__link-bullet--dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="m-menu__link-text">
-                                                    @Child.Description
-                                                </span>
-                                            </a>
-                                        </li>
-                                    }
-                                }
-                            </ul>
-                        </div>
-                    </li>
-                }
-                else if (Parent.Description == "Dashboard")
-                {
-                    <li class="m-menu__item m-menu__item--submenu @ClassExp" aria-haspopup="true" data-menu-submenu-toggle="hover">
-                        <a href="@Url.Action("Home", "Login")" class="m-menu__link m-menu__toggle">
-                            <i class="m-menu__link-icon @Parent.MenuIcon"></i>
-                            <span class="m-menu__link-text">
-                                @Parent.Description
-                            </span>
-                        </a>
-                    </li>
-
-                }
-            }
-        }
+        <li class="m-menu__item m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+            <a href="@Url.Action("Home", "LogIn")" class="m-menu__link m-menu__toggle">
+                <i class="m-menu__link-icon fa fa-home"></i>
+                <span class="m-menu__link-text">
+                    Dashboard
+                </span>
+            </a>
+        </li>
+        <li class="m-menu__item m-menu__item--submenu" aria-haspopup="true" data-menu-submenu-toggle="hover">
+            <a href="@Url.Action("Index", "Enquiry")" class="m-menu__link m-menu__toggle">
+                <i class="m-menu__link-icon flaticon-open-box"></i>
+                <span class="m-menu__link-text">
+                    Part Enquiry
+                </span>
+            </a>
+        </li>
     </ul>
 </div>
 <style>
     .circle {
-        width: 25px;
+        width: 22px;
         height: 20px;
         display: table;
         border-radius: 100%;
         text-align: center;
         font-size: 12px;
         position: relative;
-        background: #FF2D2D;
+        background: #d44b4b;
         color: white;
         font-family: Helvetica, Arial Black, sans-serif;
+        right: 20px;
     }
 
         .circle:before {

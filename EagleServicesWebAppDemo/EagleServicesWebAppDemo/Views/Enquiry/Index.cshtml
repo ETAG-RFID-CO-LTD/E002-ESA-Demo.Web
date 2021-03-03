@@ -135,7 +135,7 @@
                 .Update(r => r.Action("Part_Update", "Enquiry"))
                 )
                 .AutoBind(false)
-                .Editable(e => e.Mode(GridEditMode.PopUp).TemplateName("UpdatePart").Window(w => w.Width(500)).DisplayDeleteConfirmation(false))
+                .Editable(e => e.Mode(GridEditMode.PopUp).TemplateName("EnquiryForm").Window(w => w.Width(500)).DisplayDeleteConfirmation(false))
                 .Excel(excel => excel
                 .AllPages(true)
                 .FileName(@ViewBag.ExcelName + ".xlsx")

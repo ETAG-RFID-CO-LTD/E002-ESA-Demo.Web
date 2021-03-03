@@ -3094,6 +3094,7 @@
     <Content Include="Views\Main\Module.cshtml" />
     <Content Include="Views\Main\Part.cshtml" />
     <Content Include="Views\Enquiry\Index.cshtml" />
+    <Content Include="Views\Enquiry\EditorTemplates\EnquiryForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\accent.png" />

@@ -57,6 +57,9 @@ namespace EagleServicesWebApp.Models.Main
     {
         public string Module { get; set; }
         public int ModuleID { get; set; }
+        public int RFIDTagComplete { get; set; }
+        public int CleanNDTComplete { get; set; }
+        public int InsepctionComplete { get; set; }
         public int KittingComplete { get; set; }
         public int Complete { get; set; }
         public int OutstandingCritical { get; set; }

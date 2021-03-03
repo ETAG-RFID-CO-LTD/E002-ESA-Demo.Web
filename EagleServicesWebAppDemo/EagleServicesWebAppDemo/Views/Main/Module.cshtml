@@ -15,22 +15,25 @@
 
 }
 <div class="row">
-    <a class='k-button k-button-icontext'  onclick='closeTab()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
+    <a class='k-button k-button-icontext' onclick='closeTab()' style="position:absolute; float:right; right:1.2%;"><span class='fa fa-ban'></span> Back</a>
     <div class="col-xs-18 col-md-12" style="margin-top:26px">
         @(Html.Kendo().Grid<EagleServicesWebApp.Models.Main.Module_Rec>()
                                                                                             .Name("grid")
                                                                                             .Columns(columns =>
                                                                                             {
                                                                                                 columns.Template(@<text></text>).ClientTemplate(
-                                                                                                    "<a class='k-button k-detail' target='_blank'><span class='k-icon k-i-align-justify' onclick='DetailItem(\" #= ModuleID# \")'></span></a> ").Width(30);
-                                                                                                columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
-                                                                                                columns.Bound(c => c.Module).Title("Module").Width(60);
-                                                                                                columns.Bound(c => c.KittingComplete).Title("Kitting Completed  %").Width(80);
-                                                                                                columns.Bound(c => c.Complete).Title("Completed %").Width(60);
-                                                                                                columns.Bound(c => c.OutstandingCritical).Title("Outstanding Critical").Width(80);
-                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(100);
-                                                                                                columns.Bound(c => c.ExternalRepair).Title("External Repair").Width(70);
-                                                                                                columns.Bound(c => c.Scrap).Title("Scrap").Width(50);
+                                                                                                    "<a class='k-button k-detail' target='_blank'><span class='k-icon k-i-align-justify' onclick='DetailItem(\" #= ModuleID# \")'></span></a> ").Width(70);
+                                                                                                columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
+                                                                                                columns.Bound(c => c.Module).Title("Module").Width(130);
+                                                                                                columns.Bound(c => c.RFIDTagComplete).Title("RFID Tag Association (G0) %").Width(220);
+                                                                                                columns.Bound(c => c.CleanNDTComplete).Title("Cleaning NDT %").Width(140);
+                                                                                                columns.Bound(c => c.InsepctionComplete).Title("Inspection (Gate 1) %").Width(175);
+                                                                                                columns.Bound(c => c.KittingComplete).Title("Kitting (Gate 1) %").Width(150);
+                                                                                                columns.Bound(c => c.Complete).Title("Completed %").Width(130);
+                                                                                                columns.Bound(c => c.OutstandingCritical).Title("Outstanding Critical").Width(170);
+                                                                                                columns.Bound(c => c.OutstandingNonCritical).Title("Outstanding Non-Critical").Width(200);
+                                                                                                columns.Bound(c => c.ExternalRepair).Title("External Repair").Width(140);
+                                                                                                columns.Bound(c => c.Scrap).Title("Scrap").Width(90);
                                                                                             })
                 .DataSource(ds => ds
                 .Ajax()
@@ -47,11 +50,12 @@
                 .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound").Cancel("gridCancel"))
                 .Filterable()
                 .HtmlAttributes(new { style = "height:600px;" })
+                .Scrollable()
+                //.Scrollable(s => s.Enabled(true).Height("auto"))
                 .Pageable(p => p.Refresh(true))
                 .Reorderable(r => r.Columns(true))
                 .Resizable(r => r.Columns(true))
                 .Sortable()
-                .Scrollable()
                 .ToolBar(t => t.Excel())
         )
     </div>
@@ -73,6 +77,7 @@
     //    });
 
     //}
+    //$("#grid").data("kendoGrid").wrapper.find(".k-grid-header-wrap").off("scroll.kendoGrid");
     function closeTab() {
         window.close();
     }
@@ -213,6 +218,7 @@
           }
 
       });
+
    }
 
    function grid_onRequestEnd(e) {

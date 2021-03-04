@@ -2,8 +2,8 @@
 @using EagleServicesWebApp.Components;
 @{
 
-    ViewBag.Title = "Enquiry";
-    ViewBag.ExcelName = "Enquiry_" + DateTime.Now.ToString("yyyyMMddHHmmss");
+    ViewBag.Title = "Part Enquiry";
+    ViewBag.ExcelName = "Part Enquiry_" + DateTime.Now.ToString("yyyyMMddHHmmss");
     Layout = "~/Views/Shared/Layout.cshtml";
     int _PSettingSize = 10; //Convert.ToInt32(Session["PagerSettingSize"]);
     EagleServicesWebApp.Models.LogInMsg Fields = ViewData["LogInMsgSelect"] as EagleServicesWebApp.Models.LogInMsg;
@@ -117,6 +117,8 @@
                                                             {
                                                             columns.Command(c => { c.Edit().Text(" "); }).Width(70);
                                                             columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
+                                                                columns.Bound(c => c.EngineName).Title("Engine Name").Width(150);
+                                                                columns.Bound(c => c.ModuleName).Title("Module Name").Width(150);
                                                                 columns.Bound(c => c.PartName).Title("Part").Width(100);
                                                                 columns.Bound(c => c.IsCritical).Title("C/NC").Width(90);
                                                                 columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(150);
@@ -156,6 +158,11 @@
 </div>
 
 <script type="text/javascript">
+    $("#ExpectedArrivalDate").kendoDatePicker({
+        value: new Date(),
+        dateInput: true,
+        format: "MM/dd/yyyy"
+    });
     function closeTab() {
         window.close();
     }

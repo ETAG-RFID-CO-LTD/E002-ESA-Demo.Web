@@ -1,4 +1,5 @@
 ﻿using EagleServicesWebApp.Components;
+using EagleServicesWebApp.Models;
 using EagleServicesWebApp.Models.Main;
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
@@ -15,6 +16,10 @@ namespace EagleServicesWebApp.Controllers
         // GET: Enquiry
         public ActionResult Index()
         {
+            #region Users Message From XML
+            ErrorMessageModel Model = new ErrorMessageModel();
+            ViewData["LogInMsgSelect"] = Model.LogInMsgSelect();
+            #endregion
             return View();
         }
         public ActionResult GetEngineList()
@@ -75,6 +80,22 @@ namespace EagleServicesWebApp.Controllers
                 GlobalFunction.SendErrorToText(ex);
             }
             return new JsonResult() { Data = vResult.ToDataSourceResult(poRequest), JsonRequestBehavior = JsonRequestBehavior.AllowGet, MaxJsonLength = Int32.MaxValue };
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult Part_Update([DataSourceRequest] DataSourceRequest poRequest, Part_Enquiry poRecord)
+        {
+            if ((poRecord != null))
+            {
+                #region Update External Vendor Info
+                MainModel oClass = new MainModel();
+
+                if (!oClass.UpdatePart(poRecord))
+                    ModelState.AddModelError("Error", "Error updating.");
+                #endregion
+            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors).ToList();
+
+            return Json(new[] { poRecord }.ToDataSourceResult(poRequest, ModelState));
         }
     }
 }

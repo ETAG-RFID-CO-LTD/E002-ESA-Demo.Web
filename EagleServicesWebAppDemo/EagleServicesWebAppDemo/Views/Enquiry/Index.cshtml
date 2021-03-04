@@ -5,7 +5,8 @@
     ViewBag.Title = "Enquiry";
     ViewBag.ExcelName = "Enquiry_" + DateTime.Now.ToString("yyyyMMddHHmmss");
     Layout = "~/Views/Shared/Layout.cshtml";
-    int _PSettingSize = Convert.ToInt32(Session["PagerSettingSize"]);
+    int _PSettingSize = 10; //Convert.ToInt32(Session["PagerSettingSize"]);
+    EagleServicesWebApp.Models.LogInMsg Fields = ViewData["LogInMsgSelect"] as EagleServicesWebApp.Models.LogInMsg;
 
 }
 @model EagleServicesWebApp.Models.Main.Part
@@ -93,7 +94,7 @@
             <div class="col-md-6">
                 <label class="k-edit-label" style="text-align:left;padding: 3px;">Part Name</label>
                 <div class="k-edit-field">
-                    <input type="text" name=""  data-toggle="tooltip" id="PartName" class="k-input k-textbox" style="width: 190px;">
+                    <input type="text" name="" data-toggle="tooltip" id="PartName" class="k-input k-textbox" style="width: 190px;">
                 </div>
             </div>
         </div>
@@ -143,7 +144,7 @@
                 )
                 .Events(e => e.Edit("grid_onEdit").DataBound("grid_onDataBound").Cancel("gridCancel"))
                 .Filterable()
-                .HtmlAttributes(new { style = "height:400px;" })
+                .HtmlAttributes(new { style = "height:430px;" })
                 .Pageable(p => p.Refresh(true))
                 .Reorderable(r => r.Columns(true))
                 .Resizable(r => r.Columns(true))
@@ -176,11 +177,18 @@
     function additionalInfo() {
         return {
             enginID: $("#ddlEngine").val(), moduleID: $("#ddlModule").val(),
-            inspectionStatus: $("#ddlInsepction").val(), partName: $("#partName").val()
+            inspectionStatus: $("#ddlInsepction").val(), partName: $("#PartName").val()
         }
     }
     function ListingByFilter() {
         $("#grid").data("kendoGrid").dataSource.read();
+    }
+    function ClearAllData() {
+        $("#PartName").val("");
+        $("#ddlEngine").data('kendoDropDownList').value(0);
+        $("#ddlInsepction").data('kendoDropDownList').value(0);
+        $("#ddlModule").data('kendoDropDownList').value(0);
+        $("#grid").data('kendoGrid').dataSource.data([]);
     }
     function grid_onError(e) {
         if (e.errors) {
@@ -292,11 +300,18 @@
 
    function grid_onRequestEnd(e) {
        if (e.type === "create") {
-            if (!e.response.Errors) {
-                setNotification("@Fields.success_title", "Successfully saved", "success");
-                e.sender.read();
-            }
-        }
+           if (!e.response.Errors) {
+               setNotification("@Fields.success_title", "@Fields.Data_Add_Success", "@Fields.success_Noti");
+               e.sender.read();
+           }
+       }
+       else if (e.type === "update") {
+           if (!e.response.Errors) {
+               setNotification("@Fields.success_title", "@Fields.Data_Update_Success", "@Fields.success_Noti");
+               e.sender.read();
+               $("#grid").data("kendoGrid").refresh();
+           }
+       }
     }
     //--------------------------------------------------
     function grid_onEdit(e) {

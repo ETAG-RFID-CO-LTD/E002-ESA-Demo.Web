@@ -140,6 +140,7 @@ namespace EagleServicesWebApp.Models.Main
     }
     public class MainModel
     {
+
         public System.Data.Entity.Infrastructure.DbRawSqlQuery<Engine> GetEngineList()
         {
             string sql = "select EngineID,EngineName from [dbo].[tblEngineMaster]";
@@ -236,6 +237,41 @@ namespace EagleServicesWebApp.Models.Main
 
                 List<SqlParameter> oParameters = new List<SqlParameter>();
                 oParameters.Add(new SqlParameter("@engID", enginID));
+
+                SqlParameter[] vSqlParameter = oParameters.ToArray();
+
+                DatabaseContext oRemoteDB = new DatabaseContext();
+                int nReturn = oRemoteDB.Database.ExecuteSqlCommand(sSQL, vSqlParameter);
+
+                if (nReturn > 0)
+                    bReturn = true;
+                else
+                    bReturn = false;
+            }
+            catch (Exception ex)
+            {
+                bReturn = false;
+            }
+            //------------------------------
+            return bReturn;
+        }
+        public bool UpdatePart(Part_Enquiry part)
+        {
+            bool bReturn = true;
+            //------------------------------
+            try
+            {
+                string sSQL = " update [dbo].[tblPartMaster]" +
+                " set ExternalVendorName = @vendorName, ExpectedArrivalDate = @arrDate " +
+                " where PartID= @partID ";
+
+                List<SqlParameter> oParameters = new List<SqlParameter>();
+                oParameters.Add(new SqlParameter("@partID", part.PartID));
+                oParameters.Add(new SqlParameter("@vendorName", part.ExternalVendorName==null?"": part.ExternalVendorName));
+                if (part.ExpectedArrivalDate==null)
+                    oParameters.Add(new SqlParameter("@arrDate", DBNull.Value));
+                else
+                    oParameters.Add(new SqlParameter("@arrDate", part.ExpectedArrivalDate));
 
                 SqlParameter[] vSqlParameter = oParameters.ToArray();
 

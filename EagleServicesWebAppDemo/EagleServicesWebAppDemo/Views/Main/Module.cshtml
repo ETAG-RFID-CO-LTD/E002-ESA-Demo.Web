@@ -25,7 +25,7 @@
                                                                                                     "<a class='k-button k-detail' target='_blank' onclick='DetailItem(\" #= ModuleID# \")'><span class='k-icon k-i-align-justify'></span></a> ").Width(70);
                                                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
                                                                                                 columns.Bound(c => c.Module).Title("Module").Width(130);
-                                                                                                columns.Bound(c => c.RFIDTagComplete).Title("RFID Tag Association (G0) %").Width(220);
+                                                                                                columns.Bound(c => c.RFIDTagComplete).Title("RFID Tag Association (Gate 0) %").Width(250);
                                                                                                 columns.Bound(c => c.CleanNDTComplete).Title("Cleaning NDT %").Width(140);
                                                                                                 columns.Bound(c => c.InsepctionComplete).Title("Inspection (Gate 1) %").Width(175);
                                                                                                 columns.Bound(c => c.KittingComplete).Title("Kitting (Gate 1) %").Width(150);

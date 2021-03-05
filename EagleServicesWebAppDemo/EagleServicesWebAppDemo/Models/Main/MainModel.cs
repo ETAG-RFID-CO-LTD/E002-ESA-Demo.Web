@@ -231,9 +231,7 @@ namespace EagleServicesWebApp.Models.Main
             //------------------------------
             try
             {
-                string sSQL = " update [dbo].[tblPartMaster]" +
-                " set EPC = null, InspectionStatusID = null, TrolleyID = null, ProcessStatusID=0 " +
-                " where ModuleID in (select ModuleID  from [dbo].[tblModuleMaster] where EngineID =@engID)";
+                string sSQL = " exec RestEngine @engID ";
 
                 List<SqlParameter> oParameters = new List<SqlParameter>();
                 oParameters.Add(new SqlParameter("@engID", enginID));

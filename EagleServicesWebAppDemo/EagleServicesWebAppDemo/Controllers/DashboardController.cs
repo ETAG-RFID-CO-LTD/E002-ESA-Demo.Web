@@ -38,14 +38,14 @@ namespace EagleServicesWebApp.Controllers
         #endregion
         public ActionResult Home()
         {
-            #region Session
-            System.Web.HttpContext.Current.Session["UserID"] = "admin";
-            System.Web.HttpContext.Current.Session["Password"] = "12345678";
-            System.Web.HttpContext.Current.Session["isAdmin"] = false;
-            System.Web.HttpContext.Current.Session["RoleName"] = "Administrator";
+            //#region Session
+            //System.Web.HttpContext.Current.Session["UserID"] = "admin";
+            //System.Web.HttpContext.Current.Session["Password"] = "12345678";
+            //System.Web.HttpContext.Current.Session["isAdmin"] = false;
+            //System.Web.HttpContext.Current.Session["RoleName"] = "Administrator";
 
-            System.Web.HttpContext.Current.Session["PagerSettingSize"] = 30;
-            #endregion
+            //System.Web.HttpContext.Current.Session["PagerSettingSize"] = 30;
+            //#endregion
             MainModel model = new MainModel();
             ViewData["EngineData"] = model.GetEngineList().ToList();
             return View();

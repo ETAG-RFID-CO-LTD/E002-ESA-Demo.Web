@@ -188,7 +188,13 @@
         }
     }
     function ListingByFilter() {
-        $("#grid").data("kendoGrid").dataSource.read();
+        //$("#grid").data("kendoGrid").dataSource.read();
+        var grid = $("#grid").data("kendoGrid");
+        //reload grid's datasource
+        grid.dataSource.read();
+        // refreshes the grid
+        grid.refresh();
+        grid.dataSource.page(1);
     }
     function ClearAllData() {
         $("#PartName").val("");

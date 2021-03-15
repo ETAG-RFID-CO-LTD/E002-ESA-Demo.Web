@@ -9,10 +9,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EagleServicesWebApp.dll">
-      <publishTime>03/01/2021 11:25:00</publishTime>
+      <publishTime>03/05/2021 10:27:02</publishTime>
     </File>
     <File Include="bin/EagleServicesWebApp.pdb">
-      <publishTime>03/01/2021 11:25:00</publishTime>
+      <publishTime>03/05/2021 10:27:02</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>05/21/2020 14:40:23</publishTime>
@@ -21,10 +21,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:40:23</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/01/2021 11:25:17</publishTime>
+      <publishTime>03/05/2021 10:27:41</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/01/2021 11:25:17</publishTime>
+      <publishTime>03/05/2021 10:27:41</publishTime>
     </File>
     <File Include="bin/bg-BG/Kendo.Mvc.resources.dll">
       <publishTime>05/21/2020 14:40:04</publishTime>
@@ -2478,10 +2478,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2021 11:25:08</publishTime>
+      <publishTime>03/05/2021 10:27:23</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/FolderProfile.pubxml.user">
-      <publishTime>03/01/2021 10:09:22</publishTime>
+      <publishTime>03/04/2021 20:09:09</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/21/2020 14:40:02</publishTime>
@@ -8682,7 +8682,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:37</publishTime>
     </File>
     <File Include="Views/Dashboard/Home.cshtml">
-      <publishTime>03/01/2021 11:15:21</publishTime>
+      <publishTime>03/01/2021 12:15:00</publishTime>
     </File>
     <File Include="Views/Department/Department.cshtml">
       <publishTime>01/14/2020 19:34:12</publishTime>
@@ -8708,6 +8708,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Enquiry/AssetEnquiry/FormEdit_admin.cshtml">
       <publishTime>01/14/2020 20:44:19</publishTime>
     </File>
+    <File Include="Views/Enquiry/EditorTemplates/EnquiryForm.cshtml">
+      <publishTime>03/04/2021 18:55:51</publishTime>
+    </File>
+    <File Include="Views/Enquiry/Index.cshtml">
+      <publishTime>03/05/2021 10:26:01</publishTime>
+    </File>
     <File Include="Views/Enquiry/TransactionEnquiry.cshtml">
       <publishTime>10/24/2019 17:51:50</publishTime>
     </File>
@@ -8727,10 +8733,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="Views/Main/Module.cshtml">
-      <publishTime>03/01/2021 11:24:38</publishTime>
+      <publishTime>03/05/2021 09:24:33</publishTime>
     </File>
     <File Include="Views/Main/Part.cshtml">
-      <publishTime>03/01/2021 10:52:26</publishTime>
+      <publishTime>03/04/2021 19:48:48</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/Boolean.cshtml">
       <publishTime>05/21/2020 14:38:38</publishTime>
@@ -8793,7 +8799,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2021 17:31:33</publishTime>
     </File>
     <File Include="Views/Shared/Partials/MainMenu.cshtml">
-      <publishTime>05/21/2020 14:38:38</publishTime>
+      <publishTime>03/04/2021 19:53:34</publishTime>
     </File>
     <File Include="Views/Shared/Partials/MainSidebar.cshtml">
       <publishTime>05/21/2020 14:38:38</publishTime>
@@ -8820,7 +8826,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/21/2020 14:38:38</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/27/2021 09:48:35</publishTime>
+      <publishTime>03/04/2021 11:36:30</publishTime>
     </File>
     <File Include="XML/appSettings.xml">
       <publishTime>05/21/2020 14:38:38</publishTime>

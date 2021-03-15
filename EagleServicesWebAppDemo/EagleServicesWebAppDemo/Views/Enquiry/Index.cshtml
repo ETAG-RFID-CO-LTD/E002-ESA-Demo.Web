@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <label class="k-edit-label" style="text-align:left;padding: 3px;">Part Name</label>
+                <label class="k-edit-label" style="text-align:left;padding: 3px;">Part No</label>
                 <div class="k-edit-field">
                     <input type="text" name="" data-toggle="tooltip" id="PartName" class="k-input k-textbox" style="width: 190px;">
                 </div>
@@ -117,9 +117,10 @@
                                                             {
                                                             columns.Command(c => { c.Edit().Text(" "); }).Width(70);
                                                             columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(50);
-                                                                columns.Bound(c => c.EngineName).Title("Engine Name").Width(150);
-                                                                columns.Bound(c => c.ModuleName).Title("Module Name").Width(150);
-                                                                columns.Bound(c => c.PartName).Title("Part").Width(100);
+                                                                columns.Bound(c => c.EngineName).Title("Engine Name").Width(130);
+                                                                columns.Bound(c => c.ModuleName).Title("Module Name").Width(130);
+                                                                columns.Bound(c => c.PartNo).Title("Part No").Width(130);
+                                                                columns.Bound(c => c.PartName).Title("Part Description").Width(150);
                                                                 columns.Bound(c => c.IsCritical).Title("C/NC").Width(90);
                                                                 columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(150);
                                                                 columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(150);

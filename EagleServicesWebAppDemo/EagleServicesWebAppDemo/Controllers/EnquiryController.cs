@@ -64,7 +64,7 @@ namespace EagleServicesWebApp.Controllers
             {
                 joinStr = (enginID != null || moduleID != null || inspectionStatus != null) ? " and " : " where ";
                 condition += joinStr
-                              + " PartName like '%" + partName + "%'";
+                              + " PartNo like '%" + partName + "%'";
             }
             MainModel oClass = new MainModel();
             System.Collections.Generic.List<Part_Enquiry> vResult = null;

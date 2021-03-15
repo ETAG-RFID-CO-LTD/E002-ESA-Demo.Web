@@ -91,6 +91,7 @@ namespace EagleServicesWebApp.Models.Main
 
     public class Part_Rec
     {
+        public string PartNo { get; set; }
         public string PartName { get; set; }
         public string IsCritical { get; set; }
         public string TrolleyName { get; set; }
@@ -107,6 +108,7 @@ namespace EagleServicesWebApp.Models.Main
     public class Part_Enquiry
     {
         public int PartID { get; set; }
+        public string PartNo { get; set; }
         public string PartName { get; set; }
         public string IsCritical { get; set; }
         public string EPC { get; set; }

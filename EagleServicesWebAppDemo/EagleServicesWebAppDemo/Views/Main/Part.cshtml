@@ -22,7 +22,8 @@
                                                             .Columns(columns =>
                                                             {
                                                                 columns.Template(@<text></text>).ClientTemplate("<span class='row-number'></span>").Title("#").Width(20);
-                                                                columns.Bound(c => c.PartName).Title("Part").Width(50);
+                                                                columns.Bound(c => c.PartNo).Title("Part No").Width(40);
+                                                                columns.Bound(c => c.PartName).Title("Part Description").Width(80);
                                                                 columns.Bound(c => c.IsCritical).Title("C/NC").Width(30);
                                                                 columns.Bound(c => c.TrolleyName).Title("Kitting Trolley").Width(50);
                                                                 columns.Bound(c => c.StorageLocation).Title("Storage Location").Width(50);
